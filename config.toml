@@ -4,7 +4,7 @@ title = "Welcome to Rg Home"
 theme = "LeaveIt"
 
 [params]
-home_mode = "post" # post or other
+enableGitalk = true
 
 [menu]
   [[menu.main]]
@@ -23,3 +23,16 @@ home_mode = "post" # post or other
     name = "About"
     url = "/about/"
     weight = 4
+
+[params.gitalk]
+clientId = "88e50f263d090b13460f" # Your client ID
+clientSecret = "f1007eb6cff0af3b461be3a4b73d808ab7058a21" # Your client secret
+repo = "https://laohanlinux.github.io" # The repo to store comments
+owner = "laohanlinux" # Your GitHub ID
+admin= "laohanlinux" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
+id= "location.pathname" # The unique id of the page.
+labels= "gitalk" # Github issue labels. If you used to use Gitment, you can change it
+perPage= 15 # Pagination size, with maximum 100.
+pagerDirection= "last" # Comment sorting direction, available values are 'last' and 'first'.
+createIssueManually= false # If it is 'false', it is auto to make a Github issue when the administrators login.
+distractionFreeMode= true # Enable hot key (cmd|ctrl + enter) submit comment.
