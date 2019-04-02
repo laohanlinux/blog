@@ -1,6 +1,6 @@
 baseURL = "http://laohanlinux.github.io/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Welcome to Rg Home"
 theme = "LeaveIt"
 
 [params]
