@@ -5,3 +5,5 @@ draft: true
 tags: ['火箭少女', '炒团']
 ---
 
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1g1pxrifsrij30u01404qs.jpg)
+
