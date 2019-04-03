@@ -24,3 +24,30 @@ git push origin master
 
 # Come Back up to the Project Root
 cd ..
+
+
+
+echo "push blog.git"
+git add content/
+git add deploy.sh
+git add config.toml
+# Commit changes.
+msg="rebuilding site `date`"
+if [ $# -eq 1 ]
+  then msg="$1"
+fi
+git commit -m "$msg"
+git push
+
+
+echo "push themes/LeaveIt.git"
+cd themes/LeaveIt
+git add .
+# Commit changes.
+msg="rebuilding site `date`"
+if [ $# -eq 1 ]
+  then msg="$1"
+fi
+git commit -m "$msg"
+git push
+cd ../../
