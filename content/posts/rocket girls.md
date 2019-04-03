@@ -25,7 +25,7 @@ tags: ['火箭少女', '炒团']
 
 本来是想买杨超越的团票，可惜找了好久都没有，可能是超越人气太高了！中间也有`summy`的票，可是对方一听说是超越的粉丝，就不卖了！😂😂😂
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1g1pyys0ctrj30lc0sg796.jpg)
+![](https://ws3.sinaimg.cn/large/006tKfTcgy1g1pyys0ctrj30lc0sg796.jpg =200x300)
 
-
+![](https://ws1.sinaimg.cn/large/006tKfTcgy1g1pz34yw1dj30lc0sgdm8.jpg)
 
