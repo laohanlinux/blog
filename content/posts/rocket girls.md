@@ -29,3 +29,4 @@ tags: ['火箭少女', '炒团']
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcgy1g1pz34yw1dj30lc0sgdm8.jpg)
 
+<center><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1g1pyys0ctrj30lc0sg796.jpg"> </img></center>
