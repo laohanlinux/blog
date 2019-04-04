@@ -13,9 +13,7 @@ tags: ['火箭少女', '炒团']
 
 <iframe id="google_ads_iframe_/221143671/dsk_leaderboard_0" title="3rd party ad content" name="google_ads_iframe_/221143671/dsk_leaderboard_0" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" srcdoc="" data-google-container-id="1" data-load-complete="true" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: bottom; background: 0px 0px;"></iframe>
 
-# 😂
-
-应该买前排的，涨涨经验也好，起码得携带个望眼镜，否则总能看看投影了。
+😂应该买前排的，涨涨经验也好，起码得携带个望眼镜，否则总能看看投影了。
 
 写写经过吧!
 
@@ -32,8 +30,63 @@ tags: ['火箭少女', '炒团']
 ### 开场白
 <center>
 <iframe frameborder="0" width="800" height="600"  src="https://v.qq.com/txp/iframe/player.html?vid=a0857e6d2gs" allowFullScreen="true"></iframe>
+<iframe frameborder="0"  width="800" height="600" src="https://v.qq.com/txp/iframe/player.html?vid=v08573uc8ib" allowFullScreen="true"></iframe>
 </center>
-从现场看，孟美岐、吴宣仪、sunnee、杨超越的粉丝人数相差不大，接下来就是张紫宁、小七、傅菁、段奥娟、小彩虹、李紫婷。
+从现场看，孟美岐、吴宣仪、sunnee、杨超越的粉丝人数相差不大，接下来就是张紫宁、小七、Yami、傅菁、段奥娟、小彩虹、李紫婷。
 
+### Rocket Girl
+<center>
+<iframe frameborder="0"  width="800" height="600" src="https://v.qq.com/txp/iframe/player.html?vid=t0857f59bq1" allowFullScreen="true"></iframe>
+</center>
+是我啊，是我啊！😃
 
+### 土味情话
+
+<center>
+<iframe frameborder="0"  width="800" height="600" src="https://v.qq.com/txp/iframe/player.html?vid=j0857bf160r" allowFullScreen="true"></iframe>
+</center>
+
+### 大娟Faded
+<center>
+<iframe frameborder="0"  width="800" height="600" src="https://v.qq.com/txp/iframe/player.html?vid=g0857r6x4h3" allowFullScreen="true"></iframe>
+</center>
+
+福利
+
+https://youtu.be/y9HaphHtzCg
+
+### Solo
+<center>
+<iframe frameborder="0" width="800" height="600" src="https://v.qq.com/txp/iframe/player.html?vid=g0857r6x4h3" allowFullScreen="true"></iframe>
+</center>
+
+### 生而为赢
+<center>
+<iframe frameborder="0"  width="800" height="600" src="https://v.qq.com/txp/iframe/player.html?vid=v0857fkutxr" allowFullScreen="true"></iframe>
+</center>
+
+服装不错，舞蹈也ok！
+
+### 横冲直撞下一站
+<center>
+<iframe frameborder="0"   width="800" height="600" src="https://v.qq.com/txp/iframe/player.html?vid=p0857lq0stu" allowFullScreen="true"></iframe>
+</center>
+运动风！
+
+### 混奏
+<center>
+<iframe frameborder="0"   width="800" height="600" src="https://v.qq.com/txp/iframe/player.html?vid=l08571x0v6t" allowFullScreen="true"></iframe>
+</center>
+
+### 卡路里
+<center>
+<iframe frameborder="0" width="800" height="600" src="https://v.qq.com/txp/iframe/player.html?vid=q08572xwdv6" allowFullScreen="true"></iframe>
+</center>
+好奶的卡路里
+
+### Light
+<center>
+<iframe frameborder="0" width="800" height="600" src="https://v.qq.com/txp/iframe/player.html?vid=r0857k1zdhv" allowFullScreen="true"></iframe>
+</center>
+有些伤感的`Light`，2年限团不容易，望大家都工作顺利，身体健康！
 
