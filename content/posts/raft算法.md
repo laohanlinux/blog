@@ -1,6 +1,7 @@
 ---
 title: raft算法
 date: 2016-03-13 22:19:30
+draft: true
 tags:
 - raft
 categories: 
