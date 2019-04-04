@@ -1,5 +1,5 @@
 ---
-title: 使用Golang语言实现一个简单的Bitcask引擎的文件存储系统
+title: "使用Golang语言实现一个简单的Bitcask引擎的文件存储系统"
 date: 2016-04-25 23:45:22
 tags:
 - Bitcask

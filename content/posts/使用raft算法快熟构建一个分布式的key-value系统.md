@@ -1,5 +1,5 @@
 ---
-title: 使用raft算法快速构建一个分布式kv系统
+title: "使用raft算法快速构建一个分布式kv系统"
 date: 2016-04-25 23:44:25
 tags:
 - Golang
