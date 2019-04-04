@@ -330,13 +330,13 @@ class EchoServer
 
 ```
 
-*面向对象风格*:
+*面向对象风格*: 
 
-    用一个EchoServer 继承TcpServer(抽象类)，然后EchoServer实现三个接口onConnection、onMessage、onClose。
+> 用一个EchoServer 继承TcpServer(抽象类)，然后EchoServer实现三个接口onConnection、onMessage、onClose。
 
 *基于对象风格*:
 
-    用一个EchoServer包含一个TcpServer(具体类)对象，在构造函数中使用boost::bind来注册 三个成员函数 onConnection、onMessage、onClose。
+> 用一个EchoServer包含一个TcpServer(具体类)对象，在构造函数中使用boost::bind来注册 三个成员函数 onConnection、onMessage、onClose。
 
 
 ### poll
