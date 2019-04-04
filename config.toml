@@ -2,8 +2,10 @@ baseURL = "http://laohanlinux.github.io/"
 languageCode = "en-us"
 title = "Welcome to Rg Home"
 theme = "LeaveIt"
-paginate = 11
-
+hasCJKLanguage = true # 开启可以让「字数统计」统计汉字
+paginate = 11 # 每页的文章数
+enableEmoji = true # 支持 Emoji
+enableRobotsTXT = true # 支持 robots.txt
 preserveTaxonomyNames = true
 
 [blackfriday]
@@ -12,13 +14,29 @@ preserveTaxonomyNames = true
   noreferrerLinks = true
 
 [Permalinks]
-  posts = "/:year/:filename/"
+  posts = "/:year:month:day/:filename/"
 
 [params]
+    Since = 2014
     home_mode = ""
+    author = "Rg"
+    avatar = "https://ws2.sinaimg.cn/large/006tKfTcgy1g1pyap96v9j30zk0j1te1.jpg"
+    subtitle = "😷 What is worse than a bad pen?"
     enableGitalk = true
     description = "Rg's blog" # (Meta) 描述
+    keywords = "blog, Hugo, Rust, Golang, Raft, 火箭少女, Rocket Girl" # site keywords
     license= '本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可'
+
+[params.social]
+    GitHub = "laohanlinux"
+    # Twitter = "xxoo"
+    Email   = "daimaldd@gmail.com"
+    # Instagram = "xxoo"
+    # Wechat = "/images/me/wechat.png"  # Wechat QRcode image
+    # Facebook = "xxoo"
+    # Telegram = "xxoo"
+    # Dribbble = "xxoo"
+    # Medium = "xxoo"
 
 [menu]
     [[menu.main]]
