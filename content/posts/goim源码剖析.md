@@ -1,12 +1,14 @@
 ---
 title: goim源码剖析
 date: 2016-12-22 00:47:22
-tags: ["goim"] 
-categories: ["goim"] 
+tags: 
+- goim 
+categories: 
+- goim 
 
 description: 毛剑大神写的分布式聊天系统,即可用于推送也可用于聊天.纯属个人笔记，若有错误，欢迎修正.
-
 ---
+
 ## Comet
 
 `comet`为用户代理服务器，用于客户端的连接，根据情况可部署多个`comet`(部署机房选择以用户接入为基础，如：最近接入、按运营商接入)。
