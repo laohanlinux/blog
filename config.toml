@@ -29,7 +29,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   filename = "sitemap.xml"
 
 [[menu.main]]             # config your menu              # 配置目录
-  name = "CD ~/"
+  name = "CM ~/"
   weight = 1
   identifier = "home"
   url = "/"
@@ -48,10 +48,6 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   weight = 4
   identifier = "categories"
   url = "/categories/"
-[[menu.main]]
-  name = "About"
-  weight = 5
-  url = "/about/"
 
 [Permalinks]
   post = "/:year/:month/:day/:filename"
@@ -61,6 +57,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
 
   avatar = "https://ws2.sinaimg.cn/large/006tKfTcgy1g1pyap96v9j30zk0j1te1.jpg"
+  subtitle = "😷 What is worse than a bad pen?"
   since = "2014"            # Site creation time          # 站点建立时间
   # use public git repo url to link lastmod git commit, enableGitInfo should be true.
   # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
@@ -74,6 +71,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
   archivePaginate = 5
 
+  hiddenfromhomepage = false
   # show 'xx Posts In Total' in archive page ?            # 是否在归档页显示文章的总数
   showArchiveCount = true 
 

@@ -1,6 +1,7 @@
 ---
 title: "Go Memory Manager"
 date: 2019-04-04T17:12:18+08:00
+notoc: false
 draft: true
 ---
 
