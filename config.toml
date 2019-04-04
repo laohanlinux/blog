@@ -14,7 +14,7 @@ preserveTaxonomyNames = true
   noreferrerLinks = true
 
 [Permalinks]
-  posts = "/:year/:filename"
+  posts = "/:year/:month/:day/filename"
 
 [params]
     Since = 2014
