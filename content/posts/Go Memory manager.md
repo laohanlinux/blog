@@ -1,10 +1,7 @@
 ---
-layout: title
-title: go内存管理
-date: 2019-03-04T17:12:18+08:00
-
-tags: 
-- Golang
+title: "Go Memory Manager"
+date: 2019-04-04T17:12:18+08:00
+draft: true
 ---
 
 ## 前言
@@ -30,4 +27,3 @@ tags:
 #### CentralCache
 
 #### PageHeap
-
