@@ -25,8 +25,6 @@ git push origin master
 # Come Back up to the Project Root
 cd ..
 
-
-
 echo "push blog.git"
 git add content/
 git add deploy.sh
@@ -40,8 +38,8 @@ git commit -m "$msg"
 git push
 
 
-echo "push themes/LeaveIt.git"
-cd themes/LeaveIt
+echo "push themes/even.git"
+cd themes/even
 git add .
 # Commit changes.
 msg="rebuilding site `date`"
