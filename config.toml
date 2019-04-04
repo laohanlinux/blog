@@ -29,7 +29,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   filename = "sitemap.xml"
 
 [[menu.main]]             # config your menu              # 配置目录
-  name = "CM ~/"
+  name = "Go ~/"
   weight = 1
   identifier = "home"
   url = "/"
