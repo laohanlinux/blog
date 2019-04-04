@@ -19,6 +19,20 @@ tags: ['火箭少女', '炒团']
 
 ![](https://ws4.sinaimg.cn/large/006tKfTcgy1g1q050gxc9j311i0u0b2e.jpg)
 
+## 应援
+
+![](https://ws1.sinaimg.cn/large/006tKfTcgy1g1qhtpb3wqj30sg0lcjyg.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tKfTcgy1g1qhupt3p3j30lc0sgadl.jpg)
+
+![](https://ws3.sinaimg.cn/large/006tKfTcgy1g1qhuwmlwwj30lc0sggql.jpg)
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1g1qhvacm0zj30lc0sg7gk.jpg)
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1g1qhvfln7ij30lc0sgqbg.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tKfTcgy1g1qhvs57m8j30sg0lc7bd.jpg)
+
 ## 现场
 
 ### 开场白
@@ -84,3 +98,13 @@ https://youtu.be/y9HaphHtzCg
 </center>
 有些伤感的`Light`，2年限团不容易，望大家都工作顺利，身体健康！
 
+## 离场
+
+希望明年还有火少的演唱会吧！
+
+### 有感
+
+在知乎上看到门票的问题，感到有些痛心，试想一下，从大老远跑过来，一句话-**没票**就把人给打发了，这是什么心情。果然商人重利益，百年不变。
+
+如何评价2019年3月30日火箭少女101广州演唱会？ - 知乎
+https://www.zhihu.com/question/317403907
