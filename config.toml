@@ -58,7 +58,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
   avatar = "https://ws2.sinaimg.cn/large/006tKfTcgy1g1pyap96v9j30zk0j1te1.jpg"
   subtitle = "😷 What is worse than a bad pen?"
-  since = "2014"            # Site creation time          # 站点建立时间
+  since = "2015"            # Site creation time          # 站点建立时间
   # use public git repo url to link lastmod git commit, enableGitInfo should be true.
   # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
   gitRepo = ""
