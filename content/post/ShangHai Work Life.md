@@ -58,8 +58,16 @@ draft: true
 
 ![UNADJUSTEDNONRAW_thumb_2e0](https://ws2.sinaimg.cn/large/006tNc79gy1g1s513129wj30sg0lcdog.jpg)
 
+### Video
+<center>
+<iframe frameborder="0" width="760" height="600" src="https://v.qq.com/txp/iframe/player.html?vid=e0858lrh75n" allowFullScreen="true"></iframe>
+<iframe frameborder="0" width="760" height="600"  src="https://v.qq.com/txp/iframe/player.html?vid=f0858wy7vp7" allowFullScreen="true"></iframe>
+<iframe frameborder="0" width="760" height="600"  src="https://v.qq.com/txp/iframe/player.html?vid=l08580u98ut" allowFullScreen="true"></iframe>
+</center>
+
 第一真正意义看到雪，很漂亮，虽然不是大雪纷飞，小雪绵绵也是非常好看，就是冷了一点。
 
 在上海工作了将近2年的时间，给我感觉还比较舒服，喜欢这种一年四季的感觉，喜欢文化底蕴还ok的城市。住在苏州河上，一条围绕着内城的河，河水还算干净，至少比广州的河水干净。时不时看到一些老大爷在钓鱼，还有龙舟，一切都充满着生活的气氛。至于吃的话，还是不太习惯，有些偏甜，味道和杭州差不多。
 
 对于居住的地方，最好是住在内环线3、4号地铁周边，去哪里都非常方便，当时本人就住在`中远两湾城`，大概是2250左右，加起来差不多2500的房租.
+
