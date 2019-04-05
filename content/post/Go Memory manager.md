@@ -28,3 +28,8 @@ draft: true
 #### CentralCache
 
 #### PageHeap
+
+
+
+[Memory Allocation-Luis Ceze]: https://youtu.be/RSuZhdwvNmA
+
