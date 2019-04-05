@@ -61,8 +61,6 @@ tags:
 
 ![](https://ws1.sinaimg.cn/large/006tNc79gy1g1s4bkdhulj30sg0lcjvd.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1g1s4brf7odj30sg0lcjvd.jpg)
-
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1g1s4bxggrmj30lc0sggp5.jpg)
 
 
