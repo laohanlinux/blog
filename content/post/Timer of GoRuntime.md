@@ -1,8 +1,8 @@
 ---
-title: "Channel of GoRuntime"
-date: 2019-04-05T23:03:22+08:00
+title: "Timer of GoRuntime"
+date: 2019-04-05T23:18:10+08:00
 tags:
-- Channel
+- Timer
 - GoRuntime
 categories: 
 - GoKernel

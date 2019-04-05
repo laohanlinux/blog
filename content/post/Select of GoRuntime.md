@@ -1,8 +1,8 @@
 ---
-title: "Channel of GoRuntime"
-date: 2019-04-05T23:03:22+08:00
+title: "Select of GoRuntime"
+date: 2019-04-05T23:17:34+08:00
 tags:
-- Channel
+- Select
 - GoRuntime
 categories: 
 - GoKernel

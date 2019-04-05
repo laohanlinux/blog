@@ -1,8 +1,8 @@
 ---
-title: "Channel of GoRuntime"
-date: 2019-04-05T23:03:22+08:00
+title: "Map of GoRuntime"
+date: 2019-04-05T23:17:15+08:00
 tags:
-- Channel
+- Map
 - GoRuntime
 categories: 
 - GoKernel
