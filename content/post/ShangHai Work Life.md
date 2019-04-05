@@ -36,19 +36,19 @@ draft: true
 
 ![UNADJUSTEDNONRAW_thumb_2e8](https://ws2.sinaimg.cn/large/006tNc79gy1g1s50o6witj30sg0lc43m.jpg)
 
-![UNADJUSTEDNONRAW_thumb_2f1](/Users/rg/Pictures/Photos Library.photoslibrary/resources/proxies/derivatives/02/00/2f1/UNADJUSTEDNONRAW_thumb_2f1.jpg)
+![UNADJUSTEDNONRAW_thumb_2f1](https://ws4.sinaimg.cn/large/006tNc79gy1g1s5c8n9x0j30sg0lcgw3.jpg)
 
-![UNADJUSTEDNONRAW_thumb_2f0](/Users/rg/Pictures/Photos Library.photoslibrary/resources/proxies/derivatives/02/00/2f0/UNADJUSTEDNONRAW_thumb_2f0.jpg)
+![UNADJUSTEDNONRAW_thumb_2f0](https://ws3.sinaimg.cn/large/006tNc79gy1g1s5cfn2ovj30sg0lcn6b.jpg)
 
-![UNADJUSTEDNONRAW_thumb_2f3](/Users/rg/Pictures/Photos Library.photoslibrary/resources/proxies/derivatives/02/00/2f3/UNADJUSTEDNONRAW_thumb_2f3.jpg)
+![UNADJUSTEDNONRAW_thumb_2f3](https://ws1.sinaimg.cn/large/006tNc79gy1g1s5ck84epj30sg0lcjx9.jpg)
 
-![UNADJUSTEDNONRAW_thumb_2f8](/Users/rg/Pictures/Photos Library.photoslibrary/resources/proxies/derivatives/02/00/2f8/UNADJUSTEDNONRAW_thumb_2f8.jpg)
+![UNADJUSTEDNONRAW_thumb_2f8](https://ws4.sinaimg.cn/large/006tNc79gy1g1s5cpcr4qj30sg0lc46y.jpg)
 
 不知道什么时候才有机会看到这些风景了
 
-![UNADJUSTEDNONRAW_thumb_2ee](/Users/rg/Pictures/Photos Library.photoslibrary/resources/proxies/derivatives/02/00/2ee/UNADJUSTEDNONRAW_thumb_2ee.jpg)
+![UNADJUSTEDNONRAW_thumb_2ee](https://ws4.sinaimg.cn/large/006tNc79gy1g1s5cug32uj30sg0lctci.jpg)
 
-![UNADJUSTEDNONRAW_thumb_2f0](https://ws4.sinaimg.cn/large/006tNc79gy1g1s531wh9bj30sg0lcn6b.jpg)
+![UNADJUSTEDNONRAW_thumb_2f0](https://ws2.sinaimg.cn/large/006tNc79gy1g1s5cz9volj30sg0lcag6.jpg)
 
 ![UNADJUSTEDNONRAW_thumb_2f3](https://ws2.sinaimg.cn/large/006tNc79gy1g1s537m34hj30sg0lcjx9.jpg)
 
