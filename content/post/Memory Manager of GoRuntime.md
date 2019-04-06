@@ -80,6 +80,8 @@ class2 = `32 * 2^10` = `32Bytes`
 
 大于`32Kb`的对象
 
+![](https://ws3.sinaimg.cn/large/006tNc79ly1g1t0wqfxtkj311c0lamyd.jpg)
+
 ##### 分配流程
 
 直接从`Central Heap`分配，以`页`来适配，比如，对象的大小大于一页，则分配2页的空间。
