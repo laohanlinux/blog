@@ -61,9 +61,20 @@ Run:
 
 小于等于`32Kb`的对象
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1t0e0phmij311u0eqq3j.jpg)
+![](https://ws2.sinaimg.cn/large/006tNc79ly1g1t0i0ojahj30q40dkmxq.jpg)
 
-小对象被映射成`170`种规格的大小的小对象，
+小对象被映射成`170`种规格的大小的小对象，每个的规格不一定相同，但满足`2^N Bytes`，如：
+
+```shell
+class0 = `2^3 Bytes` = `8Bytes`
+class1 = `2^4 Bytes` = `16Bytes`
+...
+class2 = `32 * 2^10` = `32Bytes`
+```
+
+
+
+
 
 #### Large
 
