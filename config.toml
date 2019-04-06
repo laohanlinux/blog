@@ -73,7 +73,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
   hiddenfromhomepage = false
   # show 'xx Posts In Total' in archive page ?            # 是否在归档页显示文章的总数
-  showArchiveCount = true 
+  showArchiveCount = true
 
   # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
   dateFormatToUse = "2006-01-02"
@@ -164,9 +164,9 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     pagePV = true
 
   [params.reward]                                         # 文章打赏
-    enable = true 
+    enable = true
     wechat = "https://ws2.sinaimg.cn/large/006tNc79gy1g1r15n5iquj30u014qgqe.jpg"           # 微信二维码
-    # alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
+    alipay = "https://ws1.sinaimg.cn/large/006tNc79gy1g1sr2bajn6j30ih0wuad9.jpg"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
     a-email = "mailto:daimaldd@email.com"
