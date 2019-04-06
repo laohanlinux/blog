@@ -166,7 +166,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   [params.reward]                                         # 文章打赏
     enable = true
     wechat = "https://ws2.sinaimg.cn/large/006tNc79gy1g1r15n5iquj30u014qgqe.jpg"           # 微信二维码
-    alipay = "https://ws1.sinaimg.cn/large/006tNc79gy1g1sr2bajn6j30ih0wuad9.jpg"           # 支付宝二维码
+    alipay = "https://ws4.sinaimg.cn/large/006tNc79gy1g1srtxmkyyj30lw0pukae.jpg"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
     a-email = "mailto:daimaldd@email.com"
