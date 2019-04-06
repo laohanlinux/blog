@@ -32,3 +32,11 @@ draft: true
 
 [Memory Allocation-Luis Ceze]: https://youtu.be/RSuZhdwvNmA
 
+## Enter
+
+### 虚拟内存
+
+![](https://ws1.sinaimg.cn/large/006tNc79ly1g1sul0k0sbj311e0twq5z.jpg)
+
+在现代系统中，保护模式下，进程看到的内存地址都是`虚拟地址`，可以通过页表进行转换，转换到实际的主存RAW或者磁盘中。
+
