@@ -1,7 +1,6 @@
 ---
-title: "Go Memory Manager"
-date: 2019-04-04T17:12:18+08:00
-notoc: false
+title: "Memory Manager of GoRuntime"
+date: 2019-02-06T11:49:52+08:00
 draft: true
 ---
 
