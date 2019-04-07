@@ -51,7 +51,7 @@ Run:
 
 `tcmalloc`采用分层的设计，其内存对象被划分为*Small*、*Large* 2个等级，每个等级的对象占用内存各不相同，每个线程都有自己的本地缓存（谷歌出品比属精品）。
 
-结构:
+结构:  
 
 ![](https://ws1.sinaimg.cn/large/006tNc79ly1g1szxe9enmj30qg0ii0ul.jpg)
 
@@ -72,7 +72,9 @@ class1 = `2^4 Bytes` = `16Bytes`
 class2 = `32 * 2^10` = `32Bytes`
 ```
 
+##### 分配
 
+![](https://ws1.sinaimg.cn/large/006tNc79gy1g1u3ru12tvj318c0rctdk.jpg)
 
 #### Large
 
