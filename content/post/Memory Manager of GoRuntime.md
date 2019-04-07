@@ -203,6 +203,10 @@ $ go tool compile -S main.go
 
 ## 层级
 
+![Go学习笔记](https://ws3.sinaimg.cn/large/006tNc79gy1g1uelpv8qwj318z0u0n1v.jpg)
+
+[^Go学习笔记]: 
+
 和 `tcmalloc` 不同，go memory分为3个level，分别为`tiny, small, large`
 
 - Tiny 
@@ -267,6 +271,10 @@ var class_to_size = [_NumSizeClasses]uint16{0, 8, 16, 32, 48, 64, 80, 96, 112, 1
 var class_to_allocnpages = [_NumSizeClasses]uint8{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 3, 2, 3, 1, 3, 2, 3, 4, 5, 6, 1, 7, 6, 5, 4, 3, 5, 7, 2, 9, 7, 5, 8, 3, 10, 7, 4}
 
 ```
+
+#### 分配流程
+
+![image-20190407214226925](https://ws2.sinaimg.cn/large/006tNc79gy1g1ueixmli3j313u0gqabt.jpg)
 
 
 
