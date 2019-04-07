@@ -74,13 +74,28 @@ class2 = `32 * 2^10` = `32Bytes`
 
 
 
-
-
 #### Large
 
 大于`32Kb`的对象
 
 ![](https://ws3.sinaimg.cn/large/006tNc79ly1g1t0wqfxtkj311c0lamyd.jpg)
+
+一共有256中，`[1，255]`类型每一项分别占用`n*4k`，`rest`为特殊项。
+
+##### 分配
+
+- [1，255]
+
+```shell
+1：根据Object Size查找适合的`k pages`
+2：依次查找`last free list entry`，如果查不到`free list entry`，即无空闲内存，则向操作系统重新申请`k*4k`内存，作为`free entry`链接到`last free list`
+```
+
+> 内存申请可以使用`(using sbrk, mmap, or by mapping in portions of /dev/mem`
+
+- 256
+
+和前面的步骤类似
 
 ##### 分配流程
 
