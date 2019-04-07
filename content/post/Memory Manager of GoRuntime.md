@@ -95,7 +95,20 @@ class2 = `32 * 2^10` = `32Bytes`
 
 - 256
 
-和前面的步骤类似
+和前面的步骤类似.
+
+1）大对象的分配由**Central heap**负责；2）Requested size is rounded up to number of pages(4kB)
+
+> be round up to 向上取整
+
+
+
+### Span
+
+Manages memory in units called `Span`
+
+- Runs of **contiguous** memory pages
+- Metadata is **kept separated from the allocation arena**
 
 ##### 分配流程
 
@@ -108,6 +121,16 @@ class2 = `32 * 2^10` = `32Bytes`
 #### CentralCache
 
 #### PageHeap
+
+
+
+# Go Memory
+
+## Interview
+
+
+
+
 
 [Memory Allocation-Luis Ceze]: https://youtu.be/RSuZhdwvNmA
 
