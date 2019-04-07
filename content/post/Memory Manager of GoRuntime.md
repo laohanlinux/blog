@@ -130,7 +130,143 @@ Manages memory in units called `Span`
 
 ## Interview
 
+```go
+package main
 
+func main(){
+  f()
+}
+
+//go:noinline
+func f() *int {
+  i := 10
+  return &i
+}
+```
+
+**注：** 关闭内敛编译，否则经过编译器优化后
+
+```go
+package main
+
+func main(){
+  i := 10
+}
+```
+
+编译：`go build -gcflags "-m -m" alloc.go`
+
+```sh
+# command-line-arguments
+./alloc.go:8:6: cannot inline f: marked go:noinline
+./alloc.go:3:6: cannot inline main: function too complex: cost 82 exceeds budget 80
+./alloc.go:10:9: &i escapes to heap
+./alloc.go:10:9: 	from ~r0 (return) at ./alloc.go:10:2
+./alloc.go:9:2: moved to heap: i
+```
+
+关键点：
+
+- &i escapes to heap
+
+逃逸到堆
+
+- move to heap: i
+
+*i* 迁移到堆(作为指针返回)
+
+查看一下反汇编的情况：
+
+```go
+$ go tool compile -S main.go
+
+"".f STEXT size=79 args=0x8 locals=0x18
+	0x0000 00000 (alloc.go:8)	TEXT	"".f(SB), $24-8
+	0x0000 00000 (alloc.go:8)	MOVQ	(TLS), CX
+	0x0009 00009 (alloc.go:8)	CMPQ	SP, 16(CX)
+	0x000d 00013 (alloc.go:8)	JLS	72
+	0x000f 00015 (alloc.go:8)	SUBQ	$24, SP
+	0x0013 00019 (alloc.go:8)	MOVQ	BP, 16(SP)
+	0x0018 00024 (alloc.go:8)	LEAQ	16(SP), BP
+	0x001d 00029 (alloc.go:8)	FUNCDATA	$0, gclocals·9fb7f0986f647f17cb53dda1484e0f7a(SB)
+	0x001d 00029 (alloc.go:8)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x001d 00029 (alloc.go:8)	FUNCDATA	$3, gclocals·9fb7f0986f647f17cb53dda1484e0f7a(SB)
+	0x001d 00029 (alloc.go:9)	PCDATA	$2, $1
+	0x001d 00029 (alloc.go:9)	PCDATA	$0, $0
+	0x001d 00029 (alloc.go:9)	LEAQ	type.int(SB), AX
+	0x0024 00036 (alloc.go:9)	PCDATA	$2, $0
+	0x0024 00036 (alloc.go:9)	MOVQ	AX, (SP)
+	0x0028 00040 (alloc.go:9)	CALL	runtime.newobject(SB)
+```
+
+**runtime.newobject**申请对象
+
+## 层级
+
+和 `tcmalloc` 不同，go memory分为3个level，分别为`tiny, small, large`
+
+- Tiny 
+
+小于等于16字节(no pointer)
+
+- small
+
+小于等于32字节大于16字节
+
+- Large
+
+大于32字节
+
+### Go 分配器
+
+go的垃圾回收是`并行`的，是不是全部步骤都是` 并行`？
+
+- 检索所有对象(并行)
+- 标记哪些对象是active的(并行)
+- 交换未active的对象(stop the world)
+
+### Small Allocator
+
+![](https://ws1.sinaimg.cn/large/006tNc79gy1g1u5lyie1dj30rq0rs410.jpg)
+
+>  At source-code: sizeclasses.go
+
+`66`中小对象规格，具体意思如`class1`：
+
+- byets/object 
+
+每个对象的代销不超过8字节
+
+- bytes/span
+
+跨度为8192 kB = 8 kB
+
+- objects
+
+可分配的对象，计算过程：(8 kB / 8B) = 1k = 1024
+
+
+
+源码中有几个关键的常量：
+
+```go
+const (
+	_MaxSmallSize   = 32768 // 小对象的最大值
+	smallSizeDiv    = 8
+	smallSizeMax    = 1024
+	largeSizeDiv    = 128
+	_NumSizeClasses = 67
+	_PageShift      = 13
+)
+```
+
+
+
+```go
+var class_to_size = [_NumSizeClasses]uint16{0, 8, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 288, 320, 352, 384, 416, 448, 480, 512, 576, 640, 704, 768, 896, 1024, 1152, 1280, 1408, 1536, 1792, 2048, 2304, 2688, 3072, 3200, 3456, 4096, 4864, 5376, 6144, 6528, 6784, 6912, 8192, 9472, 9728, 10240, 10880, 12288, 13568, 14336, 16384, 18432, 19072, 20480, 21760, 24576, 27264, 28672, 32768}
+var class_to_allocnpages = [_NumSizeClasses]uint8{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 3, 2, 3, 1, 3, 2, 3, 4, 5, 6, 1, 7, 6, 5, 4, 3, 5, 7, 2, 9, 7, 5, 8, 3, 10, 7, 4}
+
+```
 
 
 
