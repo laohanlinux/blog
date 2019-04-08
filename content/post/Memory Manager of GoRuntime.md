@@ -276,6 +276,24 @@ var class_to_allocnpages = [_NumSizeClasses]uint8{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 
 ![image-20190407214226925](https://ws2.sinaimg.cn/large/006tNc79gy1g1ueixmli3j313u0gqabt.jpg)
 
+### Tiny Allocator
+
+![image-20190407215529472](https://ws2.sinaimg.cn/large/006tNc79gy1g1uewk49qmj314a0k2n0j.jpg)
+
+### 内存释放
+
+- 运行时周期性释放内存到操作系统
+- Releases spans that were swept more than 5 minutes ago
+- In Linux, uses the madvise(2) syscall
+
+```c++
+madvise(addr, size, _MADV_DONTNEED)
+  
+MADV_DONTNEED    Indicates that the application is not expecting to access this address range soon.  This is used with madvise() system call.
+```
+
+
+
 
 
 [Memory Allocation-Luis Ceze]: https://youtu.be/RSuZhdwvNmA
