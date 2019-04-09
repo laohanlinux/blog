@@ -24,9 +24,9 @@ hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap
 
 ![image-20190410010342018](https://ws4.sinaimg.cn/large/006tNc79gy1g1wvl0gbn1j30qi0f0dh6.jpg)
 
-
-
-![](https://ws4.sinaimg.cn/large/006tNc79gy1g1wxb61f09j30ae15g40q.jpg)
+<center>
+  <img src = "https://ws4.sinaimg.cn/large/006tNc79gy1g1wxb61f09j30ae15g40q.jpg" with = 750, hight = 800>
+</center>
 
 # Dilatation
 
