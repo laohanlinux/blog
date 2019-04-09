@@ -20,3 +20,9 @@ GoMap实际上就是一个hashTable，数据存储在数组buckets中。每个bu
 
 # Dilatation
 
+既然是hashTable，当数据量大的时候，检索会越来越慢，该如何解决这些问题。Go的Map采用了传统的扩容方式，如下：
+
+![](https://ws4.sinaimg.cn/large/006tNc79gy1g1wuhxvrgxj31b20po78v.jpg)
+
+扩容后，理论上来说，在检索某个值的时候，路径变短了。
+
