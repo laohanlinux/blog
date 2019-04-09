@@ -18,11 +18,52 @@ GoMap实际上就是一个hashTable，数据存储在数组buckets中。每个bu
 
 ![](https://ws4.sinaimg.cn/large/006tNc79gy1g1wpiggsrhj310q0s40y4.jpg)
 
+hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap.buckets: *2^B* Buckets的数组；hmap.oldbuckets: 旧桶，在迁移时不为空。
+
+比如有这么一个hashmap：
+
+![image-20190410010342018](https://ws4.sinaimg.cn/large/006tNc79gy1g1wvl0gbn1j30qi0f0dh6.jpg)
+
+
+
 # Dilatation
 
 既然是hashTable，当数据量大的时候，检索会越来越慢，该如何解决这些问题。Go的Map采用了传统的扩容方式，如下：
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1g1wuhxvrgxj31b20po78v.jpg)
+![](https://ws2.sinaimg.cn/large/006tNc79gy1g1wujqajuaj31is0poq7l.jpg)
 
-扩容后，理论上来说，在检索某个值的时候，路径变短了。
+即每次扩容，hashTable Bucket以两倍的方式进行扩容，扩容后，理论上来说，在检索某个值的时候，路径变短了。 
 
+这时候同时出现了两个`map`，旧map的键值对会逐步迁移至新的map，为了性能的考虑，不会一次性迁移，采用分批次的策略，那么就会需要解决如下的问题：
+
+- 迁移的时机，什么操作会触发迁移
+- 每次的迁移数据量是多少
+
+除此之外，还有一个比较有意思的问题，键值对达到多少时会触发扩容？在hashTable中有个*loadFactor*的概念，中文意思是*加载因子*或者叫做*负载系数*。
+
+源码中是这么解析的：负载系数太大就会有很多溢出的桶(buckets)，如果太小就会浪费太多空间。然后作者就给出了一份测试数据：
+
+```
+//  loadFactor    %overflow  bytes/entry     hitprobe    missprobe
+//        4.00         2.13        20.77         3.00         4.00
+//        4.50         4.05        17.30         3.25         4.50
+//        5.00         6.85        14.77         3.50         5.00
+//        5.50        10.55        12.94         3.75         5.50
+//        6.00        15.27        11.67         4.00         6.00
+//        6.50        20.90        10.79         4.25         6.50
+//        7.00        27.14        10.15         4.50         7.00
+//        7.50        34.03         9.73         4.75         7.50
+//        8.00        41.10         9.40         5.00         8.00
+//
+// %overflow   = percentage of buckets which have an overflow bucket
+// bytes/entry = overhead bytes used per key/value pair
+// hitprobe    = # of entries to check when looking up a present key
+// missprobe   = # of entries to check when looking up an absent key
+//
+```
+
+资料扩展：
+
+[google hashmap load factor](<https://www.google.com/search?q=hashmap+load+factor&spell=1&sa=X&ved=0ahUKEwi7haG6u8PhAhWaHzQIHf7EAN0QBQgpKAA&biw=1680&bih=916>)
+
+[wiki](<https://en.wikipedia.org/wiki/Hash_table>)
