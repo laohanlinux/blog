@@ -36,6 +36,10 @@ slice比较有意思的是扩容阶段，slice到底是以怎样的方式进行�
 
 主要逻辑在`growslice`函数
 
+![](https://ws3.sinaimg.cn/large/006tNc79gy1g1wj3opq8qj30k60qu410.jpg)
+
+*注：* 主要关键的两个逻辑：所需容量小于1024，2^N；大于1024，1/4慢慢递增，直至能容纳所需容量的大小
+
 ### Example
 
 往上看到了一个比较有意思的例子
@@ -84,4 +88,3 @@ Why?
 ![image-20190409120804468](https://ws1.sinaimg.cn/large/006tNc79gy1g1w95y8de0j31nu0p4dkp.jpg)
 
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1g1w9a8z2waj308c06omxf.jpg)
-
