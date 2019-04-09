@@ -26,6 +26,8 @@ hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap
 
 
 
+![](https://ws4.sinaimg.cn/large/006tNc79gy1g1wxb61f09j30ae15g40q.jpg)
+
 # Dilatation
 
 既然是hashTable，当数据量大的时候，检索会越来越慢，该如何解决这些问题。Go的Map采用了传统的扩容方式，如下：
@@ -67,3 +69,21 @@ hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap
 [google hashmap load factor](<https://www.google.com/search?q=hashmap+load+factor&spell=1&sa=X&ved=0ahUKEwi7haG6u8PhAhWaHzQIHf7EAN0QBQgpKAA&biw=1680&bih=916>)
 
 [wiki](<https://en.wikipedia.org/wiki/Hash_table>)
+
+# Other Special Function or Value
+
+## bucketShift()
+
+```go
+// bucketShift returns 1<<b, optimized for code generation.
+func bucketShift(b uint8) uintptr {
+	if sys.GoarchAmd64|sys.GoarchAmd64p32|sys.Goarch386 != 0 {
+		b &= sys.PtrSize*8 - 1 // help x86 archs remove shift overflow checks
+		// 4 * 8 - 1 = 31
+		// b &= 31 = b &= 1111 1 即b的取值范围[0, 1111 1]，再看下面可知，被限制在 1<<31内
+		// 在[sys.GoarchAmd64|sys.GoarchAmd64p32|sys.Goarch386]，这几种架构中被限制
+	}
+	return uintptr(1) << b
+}
+```
+
