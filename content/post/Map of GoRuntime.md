@@ -72,6 +72,10 @@ hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap
 
 # Other Special Function or Value
 
+## hashFunction
+
+TODO
+
 ## bucketShift()
 
 ```go
@@ -86,4 +90,6 @@ func bucketShift(b uint8) uintptr {
 	return uintptr(1) << b
 }
 ```
+
+[深入理解 Go map：初始化和访问元素](<https://github.com/EDDYCJY/blog/blob/master/golang/pkg/2019-03-04-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Go-map-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0.md>)
 
