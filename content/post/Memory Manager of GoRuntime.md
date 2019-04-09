@@ -292,9 +292,34 @@ madvise(addr, size, _MADV_DONTNEED)
 MADV_DONTNEED    Indicates that the application is not expecting to access this address range soon.  This is used with madvise() system call.
 ```
 
+[Linux man madvise(2)](<http://man7.org/linux/man-pages/man2/madvise.2.html>)
 
+### span
 
+span有三种状态：1）mSpanInUse，2）mSpanManual，3）mSpanFree
 
+转态转移：
+
+- 在GC期间，span可能从free转为in-use或者mannual
+- 在sweeping阶段(gcphase== _GCoff)，span从in-use转为free(由于sweeping的结果) 或者 从manual转为free(由于栈释放)
+- 在GC（gcphase != GCoff）期间，span必须不能mannual或者in-use转为free状态。因为并发gc可能会读到一个指针并且查找到这个指针指到的span，span的状态必须是单向的
+
+[Gits](<https://github.com/golang/go/blob/master/src/runtime/mheap.go#L252>)
+
+## 实践
+
+### Trace
+
+```shell
+$ curl http://server:port/debug/pprof/trace?serconds=5 -o trace.out
+$ go tool trace -http=:12345 trace.out
+```
+
+[Understanding Running Go Programs - GopherConSG 2018](<https://www.youtube.com/watch?v=FJQjUueBJ2A>)
+
+[Escape Analysis and Memory Profiling - Gopher SG 2017](<https://www.youtube.com/watch?v=2557w0qsDV0>)
+
+[go-memory-management](<https://povilasv.me/go-memory-management/>)
 
 [Memory Allocation-Luis Ceze]: https://youtu.be/RSuZhdwvNmA
 
