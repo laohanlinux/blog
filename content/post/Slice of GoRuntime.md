@@ -10,6 +10,8 @@ categories:
 draft: true
 ---
 
+## Overview
+
 ![](https://ws3.sinaimg.cn/large/006tNc79gy1g1w7kwcyk1j30ci0723yv.jpg)
 
 - array
@@ -24,13 +26,13 @@ draft: true
 
 容量
 
-### New slice
+## New slice
 
 ![image-20190409112312727](https://ws4.sinaimg.cn/large/006tNc79gy1g1w7vakto3j30ci0jkgm5.jpg)
 
 [mallocgc](<https://laohanlinux.github.io/2019/02/06/memory-manager-of-goruntime/>)
 
-### 扩容
+## Dilatation
 
 slice比较有意思的是扩容阶段，slice到底是以怎样的方式进行扩容的呢？
 
@@ -40,7 +42,7 @@ slice比较有意思的是扩容阶段，slice到底是以怎样的方式进行�
 
 *注：* 主要关键的两个逻辑：所需容量小于1024，2^N；大于1024，1/4慢慢递增，直至能容纳所需容量的大小
 
-### Example
+## Example
 
 往上看到了一个比较有意思的例子
 
