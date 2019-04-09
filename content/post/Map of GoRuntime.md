@@ -16,7 +16,7 @@ GoMap实际上就是一个hashTable，数据存储在数组buckets中。每个bu
 
 如果超过8个键被hash到某个bucket，需要连接到额外的buckets。
 
-
-
 ![](https://ws4.sinaimg.cn/large/006tNc79gy1g1wpiggsrhj310q0s40y4.jpg)
+
+# Dilatation
 
