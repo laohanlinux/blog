@@ -16,15 +16,19 @@ GoMap实际上就是一个hashTable，数据存储在数组buckets中。每个bu
 
 如果超过8个键被hash到某个bucket，需要连接到额外的buckets。
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1g1wpiggsrhj310q0s40y4.jpg)
+<center>
+  <img src="https://ws4.sinaimg.cn/large/006tNc79gy1g1wpiggsrhj310q0s40y4.jpg">
+</center>
 
 hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap.buckets: *2^B* Buckets的数组；hmap.oldbuckets: 旧桶，在迁移时不为空；nevacuate：迁移进度；extra：？
 
-
-
 比如有这么一个hashmap：
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1g1xn5eruszj30u00x1n0u.jpg)
+<center>
+  <img src = "https://ws1.sinaimg.cn/large/006tNc79gy1g1xn5eruszj30u00x1n0u.jpg">
+</center>
+
+
 
 <center>
   <img src = "https://ws4.sinaimg.cn/large/006tNc79gy1g1wxb61f09j30ae15g40q.jpg" with = 750, hight = 800>
@@ -149,10 +153,6 @@ TODO
 
 
 - minTopHash
-
-
-
-
 
 ## bucketShift()
 
