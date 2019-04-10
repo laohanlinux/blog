@@ -116,25 +116,35 @@ TODO
 
 槽为空，即该桶无元素
 
-![image-20190410231627281](https://ws3.sinaimg.cn/large/006tNc79gy1g1xy3qxxysj303s07ut8m.jpg)
+<center>
+  <img src = "https://ws3.sinaimg.cn/large/006tNc79gy1g1xy3qxxysj303s07ut8m.jpg">
+</center>
 
 - evacuatedEmpty = 1
 
 槽为空，并且桶被迁移到新的地方
 
-![image-20190410231727512](https://ws3.sinaimg.cn/large/006tNc79gy1g1xy4ra3o6j30a60gkt9e.jpg)
+<center>
+  <img src = "https://ws3.sinaimg.cn/large/006tNc79gy1g1xy4ra3o6j30a60gkt9e.jpg">
+</center>
 
 - evacuatedX
 
 键值对合法，键值对被迁移到新表的**前半位置**
 
-![image-20190410231829466](https://ws3.sinaimg.cn/large/006tNc79gy1g1xy5tz8i9j30a60gk0th.jpg)
+<center>
+  <img src = "https://ws3.sinaimg.cn/large/006tNc79gy1g1xy5tz8i9j30a60gk0th.jpg">
+</center>
 
 - evacuatedY
 
 键值对合法，键值对被迁移到新表的**后半位置
 
-![image-20190410231806368](https://ws4.sinaimg.cn/large/006tNc79gy1g1xy5fpg75j30a60gkq3p.jpg)
+<center>
+  <img src = "https://ws4.sinaimg.cn/large/006tNc79gy1g1xy5fpg75j30a60gkq3p.jpg">
+</center>
+
+
 
 - minTopHash
 
