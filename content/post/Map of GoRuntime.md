@@ -18,15 +18,47 @@ GoMap实际上就是一个hashTable，数据存储在数组buckets中。每个bu
 
 ![](https://ws4.sinaimg.cn/large/006tNc79gy1g1wpiggsrhj310q0s40y4.jpg)
 
-hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap.buckets: *2^B* Buckets的数组；hmap.oldbuckets: 旧桶，在迁移时不为空。
+hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap.buckets: *2^B* Buckets的数组；hmap.oldbuckets: 旧桶，在迁移时不为空；nevacuate：迁移进度；extra：？
+
+
 
 比如有这么一个hashmap：
 
-![image-20190410010342018](https://ws4.sinaimg.cn/large/006tNc79gy1g1wvl0gbn1j30qi0f0dh6.jpg)
+![](https://ws1.sinaimg.cn/large/006tNc79gy1g1xn5eruszj30u00x1n0u.jpg)
 
 <center>
   <img src = "https://ws4.sinaimg.cn/large/006tNc79gy1g1wxb61f09j30ae15g40q.jpg" with = 750, hight = 800>
 </center>
+
+# Access map[key]
+
+![](https://ws2.sinaimg.cn/large/006tNc79gy1g1xnd8mli2j3074118mxx.jpg)
+
+- 计算桶的位置
+
+````go
+alg := t.key.alg
+hash := alg.hash(key, uintptr(h.hash0))
+m := bucketMask(h.B) //
+b := (*bmap)(add(h.buckets, (hash&m)*uintptr(t.bucketsize)))
+````
+
+- 检查是否处于oldBuckets
+
+```go
+if c := h.oldbuckets; c != nil {
+		if !h.sameSizeGrow() {
+			// There used to be half as many buckets; mask down one more power of two.
+			m >>= 1
+		}
+		oldb := (*bmap)(add(c, (hash&m)*uintptr(t.bucketsize)))
+		if !evacuated(oldb) {
+			b = oldb
+		}
+	}
+```
+
+
 
 # Dilatation
 
@@ -75,6 +107,40 @@ hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap
 ## hashFunction
 
 TODO
+
+## ToHash[0]
+
+桶的迁移进度状态
+
+- Empty
+
+槽为空，即该桶无元素
+
+![image-20190410172447045](https://ws4.sinaimg.cn/large/006tNc79gy1g1xnxsw5lsj303e0ay3yf.jpg)
+
+- evacuatedEmpty = 1
+
+槽为空，并且桶被迁移到新的地方
+
+![image-20190410172914111](https://ws3.sinaimg.cn/large/006tNc79gy1g1xo2flhvtj30ey0piwft.jpg)
+
+- evacuatedX
+
+键值对合法，键值对被迁移到新表的**前半位置**
+
+![image-20190410173217777](https://ws3.sinaimg.cn/large/006tNc79gy1g1xo5lpixaj30ey0piabd.jpg)
+
+- evacuatedY
+
+键值对合法，键值对被迁移到新表的**后半位置
+
+![image-20190410173233685](https://ws3.sinaimg.cn/large/006tNc79gy1g1xo5wiwswj30ey0pi3zw.jpg)
+
+- minTopHash
+
+
+
+
 
 ## bucketShift()
 
