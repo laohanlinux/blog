@@ -32,7 +32,9 @@ hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap
 
 # Access map[key]
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1g1xnd8mli2j3074118mxx.jpg)
+<center>
+  <img src = "https://ws2.sinaimg.cn/large/006tNc79gy1g1xnd8mli2j3074118mxx.jpg">
+</center>
 
 - 计算桶的位置
 
