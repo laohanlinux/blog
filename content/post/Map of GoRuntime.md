@@ -28,6 +28,8 @@ hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap
   <img src = "https://ws1.sinaimg.cn/large/006tNc79gy1g1xn5eruszj30u00x1n0u.jpg">
 </center>
 
+![image-20190412011951494](https://ws2.sinaimg.cn/large/006tNc79gy1g1z7ahaozej30u00xaaij.jpg)
+
 # Init Map
 
 - Fix hint
@@ -92,7 +94,17 @@ if h.B != 0 {
 	}
 ```
 
-如果B=0，则采用懒惰分配策略
+> 1:  如果B=0，则采用懒惰分配策略
+>
+> 2: nextOverflow: 下一个空闲的起止位置。什么意思呢？
+>
+> 2.1 bucekt => |bmap1|bmap2|bmap3|overflow-bmap
+>
+> 其中overflow-bmap为最后bmap3的溢出区overflow-bmap，那么下一调用map.newoverflow(t *maptype, b *bmap) 时相当于提前生成了nextOverflow
+>
+> 2.1 bucket =>  |bmap1|bmap2|bmap3
+>
+> 无溢出，nextOverflow自然为nil
 
 - Init Memory Space
 
@@ -150,7 +162,7 @@ func tophash(hash uintptr) uint8 {
 }
 ```
 
-高8位
+存储高8位，简单的加速检索策略。
 
 # Insert
 
