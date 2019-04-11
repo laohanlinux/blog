@@ -26,7 +26,9 @@ hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap
 
 ![image-20190412023057466](https://ws1.sinaimg.cn/large/006tNc79gy1g1z9ces2epj30zz0u046l.jpg)
 
+*注*：
 
+为了避免字节对齐带来的空间浪费，键值对的存储并不是`键/值/键/值`这种方式，而是`键/键/值/值`的方式。
 
 # Init Map
 
