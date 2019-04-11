@@ -24,11 +24,9 @@ hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap
 
 比如有这么一个hashmap：
 
-<center>
-  <img src = "https://ws1.sinaimg.cn/large/006tNc79gy1g1xn5eruszj30u00x1n0u.jpg">
-</center>
+![image-20190412023057466](https://ws1.sinaimg.cn/large/006tNc79gy1g1z9ces2epj30zz0u046l.jpg)
 
-![image-20190412011951494](https://ws2.sinaimg.cn/large/006tNc79gy1g1z7ahaozej30u00xaaij.jpg)
+
 
 # Init Map
 
@@ -105,6 +103,12 @@ if h.B != 0 {
 > 2.1 bucket =>  |bmap1|bmap2|bmap3
 >
 > 无溢出，nextOverflow自然为nil
+
+*注*：如果初始化时，nextflow不为nil，则其布局如下:
+
+<center>
+  <img src = "https://ws2.sinaimg.cn/large/006tNc79gy1g1z9kwfft2j30jq068mxs.jpg">
+</center>
 
 - Init Memory Space
 
