@@ -19,3 +19,11 @@ const PtrSize = 4 << (^uintptr(0) >> 64)
 // unsafe.Sizeof(uintptr(0)) but an ideal const
 ```
 
+- bucketCntBits = 3
+
+桶个数占位数
+
+- bucketCnt = 1 << bucketCntBits = 8
+
+桶个数
+

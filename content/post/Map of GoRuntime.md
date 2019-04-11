@@ -28,16 +28,89 @@ hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap
   <img src = "https://ws1.sinaimg.cn/large/006tNc79gy1g1xn5eruszj30u00x1n0u.jpg">
 </center>
 
+# Init Map
 
+- Fix hint
+
+```go
+if hint < 0 || hint > int(maxSliceCap(t.bucket.size)) {
+		hint = 0
+}
+```
+
+- Init hashFunction
+
+```go
+if h == nil {
+		h = (*hmap)(newobject(t.hmap))
+	}
+h.hash0 = fastrand()
+```
+
+*注：* 为了安全，每次启动哈希函数的`部分输入`都是不同的
+
+```go
+func fastrand() uint32 {
+	mp := getg().m
+	// Implement xorshift64+: 2 32-bit xorshift sequences added together.
+	// Shift triplet [17,7,16] was calculated as indicated in Marsaglia's
+	// Xorshift paper: https://www.jstatsoft.org/article/view/v008i14/xorshift.pdf
+	// This generator passes the SmallCrush suite, part of TestU01 framework:
+	// http://simul.iro.umontreal.ca/testu01/tu01.html
+	s1, s0 := mp.fastrand[0], mp.fastrand[1]
+	s1 ^= s1 << 17
+	s1 = s1 ^ s0 ^ s1>>7 ^ s0>>16
+	mp.fastrand[0], mp.fastrand[1] = s0, s1
+	return s0 + s1
+}
+```
+
+- Init B
+
+```go
+// find size parameter which will hold the requested # of elements
+	B := uint8(0)
+	// 计算一个合适的负载因子
+	// 主要是loadFactorNum*(bucketShift(B)/loadFactorDen))
+	// bucketShift(B) * loadFactorNum/loadFactorDen
+	for overLoadFactor(hint, B) {
+		B++
+	}
+	h.B = B
+```
+
+- Init hash table
+
+```go
+if h.B != 0 {
+		var nextOverflow *bmap
+		h.buckets, nextOverflow = makeBucketArray(t, h.B)
+		if nextOverflow != nil {
+			h.extra = new(mapextra)
+			h.extra.nextOverflow = nextOverflow
+		}
+	}
+```
+
+如果B=0，则采用懒惰分配策略
+
+- Init Memory Space
 
 <center>
   <img src = "https://ws4.sinaimg.cn/large/006tNc79gy1g1wxb61f09j30ae15g40q.jpg" with = 750, hight = 800>
 </center>
 
-# Access map[key]
+# Lookups
+
+```
+v := m["key"] --> runtime.mapaccess1(m, "key", &v)
+v, ok := m["key"] --> runtime.mapaccess2(m, "key", &v, &ok)
+```
+
+
 
 <center>
-  <img src = "https://ws2.sinaimg.cn/large/006tNc79gy1g1xnd8mli2j3074118mxx.jpg">
+  <img src = "https://ws2.sinaimg.cn/large/006tNc79gy1g1xnd8mli2j3074118mxx.jpg" with = "750" hight = "50">
 </center>
 
 - 计算桶的位置
@@ -62,6 +135,20 @@ if c := h.oldbuckets; c != nil {
 			b = oldb
 		}
 	}
+```
+
+# Insert
+
+```
+m["key"] = 8120 --> runtime.mapinsert(m, "key", 8120)
+```
+
+
+
+# Remove
+
+```
+delete(m, "key") --> runtime.mapdelete(m, "key")
 ```
 
 
@@ -101,6 +188,8 @@ if c := h.oldbuckets; c != nil {
 // missprobe   = # of entries to check when looking up an absent key
 //
 ```
+
+GoMap使用的是*6.5*
 
 资料扩展：
 
