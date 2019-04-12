@@ -120,6 +120,8 @@ if h.B != 0 {
   <img src = "https://ws4.sinaimg.cn/large/006tNc79gy1g1wxb61f09j30ae15g40q.jpg" with = 750, hight = 800>
 </center>
 
+*注：* 内存分配是要涉及到页对齐，所以`nbuckets`可能会比`base`大，这时候会预分配 `nbuckets - base` 个 `nextOverflow`桶
+
 # Lookups
 
 ```
@@ -208,6 +210,37 @@ delete(m, "key") --> runtime.mapdelete(m, "key")
     Nothing
 
 ？TODO key/value指正和非指针处理方式稍有不同
+
+# Iterator
+
+```go
+// A hash iteration structure.
+// If you modify hiter, also change cmd/internal/gc/reflect.go to indicate
+// the layout of this structure.
+type hiter struct {
+	key         unsafe.Pointer // Must be in first position.  Write nil to indicate iteration end (see cmd/internal/gc/range.go).
+	value       unsafe.Pointer // Must be in second position (see cmd/internal/gc/range.go).
+	t           *maptype
+	h           *hmap
+	buckets     unsafe.Pointer // bucket ptr at hash_iter initialization time
+	bptr        *bmap          // current bucket
+	overflow    *[]*bmap       // keeps overflow buckets of hmap.buckets alive
+	oldoverflow *[]*bmap       // keeps overflow buckets of hmap.oldbuckets alive
+	startBucket uintptr        // bucket iteration started at
+	offset      uint8          // intra-bucket offset to start from during iteration (should be big enough to hold bucketCnt-1)
+	wrapped     bool           // already wrapped around from end of bucket array to beginning
+	B           uint8
+	i           uint8
+	bucket      uintptr
+	checkBucket uintptr
+}
+```
+
+入口函数`mapiterinit(t *maptype, h *hmap, it *iter)`
+
+- 构造迭代器对象(使用Copy方式构造)
+- 选择迭代器基点
+- 开始迭代
 
 # Dilatation
 

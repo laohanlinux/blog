@@ -19,6 +19,8 @@ const PtrSize = 4 << (^uintptr(0) >> 64)
 // unsafe.Sizeof(uintptr(0)) but an ideal const
 ```
 
+## Map
+
 - bucketCntBits = 3
 
 桶个数占位数
@@ -26,4 +28,23 @@ const PtrSize = 4 << (^uintptr(0) >> 64)
 - bucketCnt = 1 << bucketCntBits = 8
 
 桶个数
+
+- loadFactor = 6.5
+
+触发扩容操作的最大装载因子的临界值
+
+- maxKeySize = 128 
+- maxValueSize = 128
+
+为了保持内联，键值对的最大长度都是`128`字节，如果超过`128`个字节，就存储它的指针
+
+- dataOffset = unsafe.Offsetof(struct {b bmap; v int64} {}.v)
+
+`dataOffset`应该是`bmap struct`的大小，但是需要内存字节
+
+- noCheck = 1<<(8*sys.PtrSize) - 1
+
+用于迭代检查的哨兵桶ID
+
+
 
