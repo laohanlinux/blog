@@ -127,11 +127,7 @@ v := m["key"] --> runtime.mapaccess1(m, "key", &v)
 v, ok := m["key"] --> runtime.mapaccess2(m, "key", &v, &ok)
 ```
 
-
-
-<center>
-  <img src = "https://ws2.sinaimg.cn/large/006tNc79gy1g1xnd8mli2j3074118mxx.jpg" with = "750" hight = "50">
-</center>
+`mapaccess1`、`mapaccess2`、`mapaccess3`大同小异，分析`mapaccess1`即可。
 
 - 计算桶的位置
 
@@ -174,19 +170,44 @@ func tophash(hash uintptr) uint8 {
 
 # Insert
 
-```
+```scala
 m["key"] = 8120 --> runtime.mapinsert(m, "key", 8120)
 ```
 
+源码函数：`mapassign(t *maptype, h *hmap, key unsafe.Pointer)`
 
+- 计算桶位置
+- 检查oldBuckets是否为空，不为空，则**增量迁移**
+- 迭代桶和溢出桶，查找目标，查到则更新对应的值；否生成新的溢出桶，将新键值对保存至此，并增加计算hmap.count++
+
+这里有些比较有意思的细节：
+
+- key的更新-bulkBarrierPreWrite [TODO，具体细节还未知]
+- 检查是否需要Grow
 
 # Remove
 
-```
+```shell
 delete(m, "key") --> runtime.mapdelete(m, "key")
 ```
 
+- 计算桶的位置
 
+- 检查oldBuckets是否为空，不为空，则**增量迁移**
+
+- 迭代桶和溢出桶，查找目标
+
+  - 查到
+
+    1：toHash[i] = empty
+
+    2：h.count -- 
+
+  - 未查到
+
+    Nothing
+
+？TODO key/value指正和非指针处理方式稍有不同
 
 # Dilatation
 
@@ -225,6 +246,10 @@ delete(m, "key") --> runtime.mapdelete(m, "key")
 ```
 
 GoMap使用的是*6.5*
+
+## Grow
+
+
 
 资料扩展：
 
@@ -292,6 +317,20 @@ func bucketShift(b uint8) uintptr {
 	return uintptr(1) << b
 }
 ```
+
+# FAQ
+
+## 什么时候触发增量迁移动作？
+
+insert或者delete操作时触发迁移动作的检查，相关的代码段如下：
+
+```go
+if h.growing() {
+  growWork(t, h, bucket)
+}
+```
+
+
 
 [深入理解 Go map：初始化和访问元素](<https://github.com/EDDYCJY/blog/blob/master/golang/pkg/2019-03-04-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Go-map-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0.md>)
 
