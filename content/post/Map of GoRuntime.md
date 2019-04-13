@@ -217,33 +217,21 @@ delete(m, "key") --> runtime.mapdelete(m, "key")
 
 # Iterator
 
-```go
-// A hash iteration structure.
-// If you modify hiter, also change cmd/internal/gc/reflect.go to indicate
-// the layout of this structure.
-type hiter struct {
-	key         unsafe.Pointer // Must be in first position.  Write nil to indicate iteration end (see cmd/internal/gc/range.go).
-	value       unsafe.Pointer // Must be in second position (see cmd/internal/gc/range.go).
-	t           *maptype
-	h           *hmap
-	buckets     unsafe.Pointer // bucket ptr at hash_iter initialization time
-	bptr        *bmap          // current bucket
-	overflow    *[]*bmap       // keeps overflow buckets of hmap.buckets alive
-	oldoverflow *[]*bmap       // keeps overflow buckets of hmap.oldbuckets alive
-	startBucket uintptr        // bucket iteration started at
-	offset      uint8          // intra-bucket offset to start from during iteration (should be big enough to hold bucketCnt-1)
-	wrapped     bool           // already wrapped around from end of bucket array to beginning
-	B           uint8
-	i           uint8
-	bucket      uintptr
-	checkBucket uintptr
-}
-```
-
 入口函数`mapiterinit(t *maptype, h *hmap, it *iter)`
 
 - 构造迭代器对象(使用Copy方式构造)
-- 选择迭代器基点
+- 选择迭代器基点(这是随机的，随机的种子来之于...)
+
+```go
+  // decide where to start
+	r := uintptr(fastrand())
+	if h.B > 31-bucketCntBits {
+		r += uintptr(fastrand()) << 31
+	}
+	it.startBucket = r & bucketMask(h.B)
+	it.offset = uint8(r >> h.B & (bucketCnt - 1))
+```
+
 - 开始迭代
 
 # Dilatation
@@ -256,11 +244,15 @@ type hiter struct {
 
 这时候同时出现了两个`map`，旧map的键值对会逐步迁移至新的map，为了性能的考虑，不会一次性迁移，采用*增量扩容*策略，那么就会需要解决如下的问题：
 
-- 迁移的时机，什么操作会触发迁移
+- 扩容触发的原因
 
-在 Go 的 mapassign 插入 Key 值、mapdelete 删除 key 值的时候都会检查当前是否在扩容中.
+1：达到负载因子（负载因子的单位是cell，即key）；2：负载因子为达到，但是溢出的空桶太多（这里的单位是bucket，即溢出的bucket个数），溢出空间使用率就低了
 
-- 每次的迁移数据量是多少
+- 什么操作会触发增量迁移
+
+在 Go 的 mapassign 插入 Key 值、mapdelete 删除 key 值的时候都会检查当前是否在扩容中，如果是，则迁移当前key所在的bucket。
+
+- 每次的迁移数据量是多少(1 个bucket)
 
 除此之外，还有一个比较有意思的问题，键值对达到多少时会触发扩容？在hashTable中有个*loadFactor*的概念，中文意思是*加载因子*或者叫做*负载系数*。
 
