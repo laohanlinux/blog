@@ -477,7 +477,7 @@ func advanceEvacuationMark(h *hmap, t *maptype, newbit uintptr) {
 - 如果有迭代器在迭代，那么旧的桶不会被迁移
 - sameSizeGrow = 8：当前字典增长到新字典并且保持相同的大小
 
-资料扩展：
+**Refernce**
 
 [google hashmap load factor](<https://www.google.com/search?q=hashmap+load+factor&spell=1&sa=X&ved=0ahUKEwi7haG6u8PhAhWaHzQIHf7EAN0QBQgpKAA&biw=1680&bih=916>)
 
@@ -556,7 +556,7 @@ if h.growing() {
 }
 ```
 
-
+**Refernce**
 
 [深入理解 Go map：初始化和访问元素](<https://github.com/EDDYCJY/blog/blob/master/golang/pkg/2019-03-04-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Go-map-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0.md>)
 
