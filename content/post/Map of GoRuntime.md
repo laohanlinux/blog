@@ -160,8 +160,12 @@ if c := h.oldbuckets; c != nil {
 ```go
 // tophash calculates the tophash value for hash.
 func tophash(hash uintptr) uint8 {
+  // 往右移，剩下高8位，即top为hash的高8位
 	top := uint8(hash >> (sys.PtrSize*8 - 8))
 	if top < minTopHash {
+    // 小于minTopHash时，需要加上minTopHash，[0, minToHash]已被占
+ 		// 用，假设top =1, top+=minTopHash = 5. 如果topHash1 = 5, 
+    // 最终结果topHash = topHash1，这样也不影响后续的比较(if alg.equal(key, k))
 		top += minTopHash
 	}
 	return top
@@ -366,6 +370,8 @@ if h.growing() {
 
 
 [深入理解 Go map：初始化和访问元素](<https://github.com/EDDYCJY/blog/blob/master/golang/pkg/2019-03-04-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Go-map-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0.md>)
+
+[如何设计并实现一个线程安全的 Map ？(上篇)](<https://www.jianshu.com/p/cd41ca8741f4>)
 
 [how-the-go-runtime-implements-maps-efficiently-without-generics](<https://dave.cheney.net/2018/05/29/how-the-go-runtime-implements-maps-efficiently-without-generics>)
 
