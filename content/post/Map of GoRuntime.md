@@ -290,35 +290,90 @@ GoMap使用的是*6.5*
 ## Grow
 
 ```go
-func growWork(t *maptype, h *hmap, bucket uintptr) {
-	// make sure we evacuate the oldbucket corresponding
-	// to the bucket we're about to use
-	evacuate(t, h, bucket&h.oldbucketmask())
+func hashGrow(t *maptype, h *hmap) {
+	bigger := uint8(1)
+	if !overLoadFactor(h.count+1, h.B) {
+		bigger = 0
+    // 溢出太多空桶而扩容
+		h.flags |= sameSizeGrow
+	}
+	oldbuckets := h.buckets
+	newbuckets, nextOverflow := makeBucketArray(t, h.B+bigger)
 
-	// evacuate one more oldbucket to make progress on growing
+	flags := h.flags &^ (iterator | oldIterator)
+	if h.flags&iterator != 0 {
+		flags |= oldIterator
+	}
+	
+  // 重置数据
+	h.B += bigger
+	h.flags = flags
+	h.oldbuckets = oldbuckets
+	h.buckets = newbuckets
+	h.nevacuate = 0
+	h.noverflow = 0
+
+  // 将当前溢出桶迁移至`旧`溢出桶
+	if h.extra != nil && h.extra.overflow != nil {
+		// Promote current overflow buckets to the old generation.
+		if h.extra.oldoverflow != nil {
+			throw("oldoverflow is not nil")
+		}
+		h.extra.oldoverflow = h.extra.overflow
+		h.extra.overflow = nil
+	}
+	if nextOverflow != nil {
+		if h.extra == nil {
+			h.extra = new(mapextra)
+		}
+		h.extra.nextOverflow = nextOverflow
+	}
+}
+```
+
+
+
+```go
+func growWork(t *maptype, h *hmap, bucket uintptr) {
+	// 确保迁移了bucket对应的oldbucket
+	evacuate(t, h, bucket&h.oldbucketmask())
+	// 再迁移一个标记过的桶
 	if h.growing() {
 		evacuate(t, h, h.nevacuate)
 	}
 }
+// evacDst is an evacuation destination.
+type evacDst struct {
+	b *bmap          // current destination bucket
+	i int            // key/val index into b
+	k unsafe.Pointer // pointer to current key storage
+	v unsafe.Pointer // pointer to current value storage
+}
 
+// 计算真正扩容的旧桶对应的B
+func (h *hmap) noldbuckets() uintptr {
+	oldB := h.B
+	if !h.sameSizeGrow() {
+		oldB--
+	}
+	return bucketShift(oldB)
+}
 
 func evacuate(t *maptype, h *hmap, oldbucket uintptr) {
+  // 计算出旧桶的位置
 	b := (*bmap)(add(h.oldbuckets, oldbucket*uintptr(t.bucketsize)))
+  // 扩容前桶的个数
 	newbit := h.noldbuckets()
+  // 桶还未被迁移
 	if !evacuated(b) {
-		// TODO: reuse overflow buckets instead of using new ones, if there
-		// is no iterator using the old buckets.  (If !oldIterator.)
-
-		// xy contains the x and y (low and high) evacuation destinations.
 		var xy [2]evacDst
 		x := &xy[0]
-		x.b = (*bmap)(add(h.buckets, oldbucket*uintptr(t.bucketsize)))
-		x.k = add(unsafe.Pointer(x.b), dataOffset)
-		x.v = add(x.k, bucketCnt*uintptr(t.keysize))
-
+		x.b = (*bmap)(add(h.buckets, oldbucket*uintptr(t.bucketsize))) // 新低位桶
+		x.k = add(unsafe.Pointer(x.b), dataOffset) // 新低位桶的第一个key
+		x.v = add(x.k, bucketCnt*uintptr(t.keysize))// 新低位桶的第一个value
+		// 如果不是等量扩容
 		if !h.sameSizeGrow() {
-			// Only calculate y pointers if we're growing bigger.
-			// Otherwise GC can see bad pointers.
+      // 新高位桶
 			y := &xy[1]
 			y.b = (*bmap)(add(h.buckets, (oldbucket+newbit)*uintptr(t.bucketsize)))
 			y.k = add(unsafe.Pointer(y.b), dataOffset)
@@ -326,7 +381,9 @@ func evacuate(t *maptype, h *hmap, oldbucket uintptr) {
 		}
 
 		for ; b != nil; b = b.overflow(t) {
+      // 旧桶key的地址
 			k := add(unsafe.Pointer(b), dataOffset)
+      // 旧桶value的地址
 			v := add(k, bucketCnt*uintptr(t.keysize))
 			for i := 0; i < bucketCnt; i, k, v = i+1, add(k, uintptr(t.keysize)), add(v, uintptr(t.valuesize)) {
 				top := b.tophash[i]
@@ -343,21 +400,9 @@ func evacuate(t *maptype, h *hmap, oldbucket uintptr) {
 				}
 				var useY uint8
 				if !h.sameSizeGrow() {
-					// Compute hash to make our evacuation decision (whether we need
-					// to send this key/value to bucket x or bucket y).
+        	
 					hash := t.key.alg.hash(k2, uintptr(h.hash0))
 					if h.flags&iterator != 0 && !t.reflexivekey && !t.key.alg.equal(k2, k2) {
-						// If key != key (NaNs), then the hash could be (and probably
-						// will be) entirely different from the old hash. Moreover,
-						// it isn't reproducible. Reproducibility is required in the
-						// presence of iterators, as our evacuation decision must
-						// match whatever decision the iterator made.
-						// Fortunately, we have the freedom to send these keys either
-						// way. Also, tophash is meaningless for these kinds of keys.
-						// We let the low bit of tophash drive the evacuation decision.
-						// We recompute a new random tophash for the next level so
-						// these keys will get evenly distributed across all buckets
-						// after multiple grows.
 						useY = top & 1
 						top = tophash(hash)
 					} else {
@@ -370,17 +415,17 @@ func evacuate(t *maptype, h *hmap, oldbucket uintptr) {
 				if evacuatedX+1 != evacuatedY {
 					throw("bad evacuatedN")
 				}
-
-				b.tophash[i] = evacuatedX + useY // evacuatedX + 1 == evacuatedY
-				dst := &xy[useY]                 // evacuation destination
-
+				// 设置tophash[i]
+				b.tophash[i] = evacuatedX + useY 
+        // 迁移的目标
+				dst := &xy[useY]                 
 				if dst.i == bucketCnt {
 					dst.b = h.newoverflow(t, dst.b)
 					dst.i = 0
 					dst.k = add(unsafe.Pointer(dst.b), dataOffset)
 					dst.v = add(dst.k, bucketCnt*uintptr(t.keysize))
 				}
-				dst.b.tophash[dst.i&(bucketCnt-1)] = top // mask dst.i as an optimization, to avoid a bounds check
+				dst.b.tophash[dst.i&(bucketCnt-1)] = top 
 				if t.indirectkey {
 					*(*unsafe.Pointer)(dst.k) = k2 // copy pointer
 				} else {
@@ -392,10 +437,7 @@ func evacuate(t *maptype, h *hmap, oldbucket uintptr) {
 					typedmemmove(t.elem, dst.v, v)
 				}
 				dst.i++
-				// These updates might push these pointers past the end of the
-				// key or value arrays.  That's ok, as we have the overflow pointer
-				// at the end of the bucket to protect against pointing past the
-				// end of the bucket.
+				
 				dst.k = add(dst.k, uintptr(t.keysize))
 				dst.v = add(dst.v, uintptr(t.valuesize))
 			}
@@ -415,9 +457,33 @@ func evacuate(t *maptype, h *hmap, oldbucket uintptr) {
 		advanceEvacuationMark(h, t, newbit)
 	}
 }
+
+
+func advanceEvacuationMark(h *hmap, t *maptype, newbit uintptr) {
+	h.nevacuate++
+	stop := h.nevacuate + 1024
+	if stop > newbit {
+		stop = newbit
+	}
+	for h.nevacuate != stop && bucketEvacuated(t, h, h.nevacuate) {
+		h.nevacuate++
+	}
+  // 数据已全部迁移完毕，清理相关变量值，不会影响到迭代器，即迭代器还是可以方位就的数据
+	if h.nevacuate == newbit { 
+		h.oldbuckets = nil
+		if h.extra != nil {
+			h.extra.oldoverflow = nil
+		}
+		h.flags &^= sameSizeGrow
+	}
+}
+
 ```
 
+*注*：
 
+- 如果有迭代器在迭代，那么旧的桶不会被迁移
+- sameSizeGrow = 8：当前字典增长到新字典并且保持相同的大小
 
 资料扩展：
 
