@@ -16,6 +16,8 @@ draft: true
 
 ## Benchmark
 
+### v.0.1
+
 ``` shell
 -> % target/release/examples/echo_client -t 2 -c 100 -l 100 -a 127.0.0.1:3941
 ==================Benchmarking: 127.0.0.1:3941==================
@@ -26,4 +28,17 @@ Requests: 1002303
 Responses: 1002302
 ```
 
-challenge `500k`
+### v.0.2
+
+mutil io reator
+
+``` shell
+==================Benchmarking: 127.0.0.1:3941==================
+100 clients, running 100 bytes, 10 sec.
+
+Speed: 115648 request/sec,  115648 response/sec, 11293 kb/sec
+Requests: 1156483
+Responses: 1156482
+```
+
+continue to challenge `500k`
