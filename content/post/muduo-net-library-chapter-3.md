@@ -1,11 +1,15 @@
 ---
 title: muduo net library chapter 3
-date: 2015-07-01 00:24:59
+date: 2015-08-01 00:15:03
 tags:
 - muduo
+
 categories:
 - muduo 
 - network program
+
+description: muduo 是一个linux 网络库，使用poll和epoll模式。 这些内容是本人在大学的时候，通过  << c++教程网 >>  所学的知识笔记. 已经过去好几年了，版本也是比较老的了，属于入门级别的教程； 如有错误，纯属正常!!!
+
 ---
 
 ## [34] TcpServer/TcpConnection
