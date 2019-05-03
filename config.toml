@@ -56,7 +56,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   version = "4.x"           # Used to give a friendly message when you have an incompatible update
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
 
-  avatar = "https://ws2.sinaimg.cn/large/006tKfTcgy1g1pyap96v9j30zk0j1te1.jpg"
+  avatar = "https://i.loli.net/2019/05/03/5ccc071537b20.jpg"
   subtitle = "😷 What is worse than a bad pen?"
   since = "2013"            # Site creation time          # 站点建立时间
   # use public git repo url to link lastmod git commit, enableGitInfo should be true.
@@ -165,8 +165,8 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
   [params.reward]                                         # 文章打赏
     enable = true
-    wechat = "https://ws2.sinaimg.cn/large/006tNc79gy1g1r15n5iquj30u014qgqe.jpg"           # 微信二维码
-    alipay = "https://ws4.sinaimg.cn/large/006tNc79gy1g1srtxmkyyj30lw0pukae.jpg"           # 支付宝二维码
+    wechat = "https://i.loli.net/2019/05/03/5ccc0678af781.jpg"           # 微信二维码
+    alipay = "https://i.loli.net/2019/05/03/5ccc06bca9457.jpg"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
     a-email = "mailto:daimaldd@email.com"
