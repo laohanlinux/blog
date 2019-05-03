@@ -17,14 +17,14 @@ GoMap实际上就是一个hashTable，数据存储在数组buckets中。每个bu
 如果超过8个键被hash到某个bucket，需要连接到额外的buckets。
 
 <center>
-  <img src="https://ws4.sinaimg.cn/large/006tNc79gy1g1wpiggsrhj310q0s40y4.jpg">
+  <img src="https://i.loli.net/2019/05/03/5ccc042de41a3.jpg">
 </center>
 
 hmap.B 可容纳的键值对: *2^B*；hmap.bucketSize: 每个桶的大小；hmap.buckets: *2^B* Buckets的数组；hmap.oldbuckets: 旧桶，在迁移时不为空；nevacuate：迁移进度；extra：？
 
 比如有这么一个hashmap：
 
-![image-20190412023057466](https://ws1.sinaimg.cn/large/006tNc79gy1g1z9ces2epj30zz0u046l.jpg)
+![image-20190412023057466](https://i.loli.net/2019/05/03/5ccbe0abd28fb.jpg)
 
 *注*：
 
@@ -111,13 +111,13 @@ if h.B != 0 {
 *注*：如果初始化时，nextflow不为nil，则其布局如下:
 
 <center>
-  <img src = "https://ws2.sinaimg.cn/large/006tNc79gy1g1z9kwfft2j30jq068mxs.jpg">
+  <img src = "https://i.loli.net/2019/05/03/5ccbe0bb0b364.jpg">
 </center>
 
 - Init Memory Space
 
 <center>
-  <img src = "https://ws4.sinaimg.cn/large/006tNc79gy1g1wxb61f09j30ae15g40q.jpg" with = 750, hight = 800>
+  <img src = "https://i.loli.net/2019/05/03/5ccc042ebe9dd.jpg" with = 750, hight = 800>
 </center>
 
 *注：* 内存分配是要涉及到页对齐，所以`nbuckets`可能会比`base`大，这时候会预分配 `nbuckets - base` 个 `nextOverflow`桶
@@ -238,7 +238,7 @@ delete(m, "key") --> runtime.mapdelete(m, "key")
 
 既然是hashTable，当数据量大的时候，检索会越来越慢，该如何解决这些问题。Go的Map采用了传统的扩容方式，如下：
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1g1wujqajuaj31is0poq7l.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0ba7b5d4.jpg)
 
 即每次扩容，hashTable Bucket以两倍的方式进行扩容，扩容后，理论上来说，在检索某个值的时候，路径变短了。 
 
@@ -498,7 +498,7 @@ TODO
 槽为空，即该桶无元素
 
 <center>
-  <img src = "https://ws3.sinaimg.cn/large/006tNc79gy1g1xy3qxxysj303s07ut8m.jpg">
+  <img src = "https://i.loli.net/2019/05/03/5ccc037242652.jpg">
 </center>
 
 - evacuatedEmpty = 1
@@ -506,7 +506,7 @@ TODO
 槽为空，并且桶被迁移到新的地方
 
 <center>
-  <img src = "https://ws3.sinaimg.cn/large/006tNc79gy1g1xy4ra3o6j30a60gkt9e.jpg">
+  <img src = "https://i.loli.net/2019/05/03/5ccc0372c88e1.jpg">
 </center>
 
 - evacuatedX
@@ -514,7 +514,7 @@ TODO
 键值对合法，键值对被迁移到新表的**前半位置**
 
 <center>
-  <img src = "https://ws3.sinaimg.cn/large/006tNc79gy1g1xy5tz8i9j30a60gk0th.jpg">
+  <img src = "https://i.loli.net/2019/05/03/5ccc037357692.jpg">
 </center>
 
 - evacuatedY
@@ -522,7 +522,7 @@ TODO
 键值对合法，键值对被迁移到新表的**后半位置
 
 <center>
-  <img src = "https://ws4.sinaimg.cn/large/006tNc79gy1g1xy5fpg75j30a60gkq3p.jpg">
+  <img src = "https://i.loli.net/2019/05/03/5ccbe0dd77ae9.jpg">
 </center>
 
 

@@ -161,17 +161,17 @@ description: 本文的内容源至--知行学社V.好吧，看完后，我还是
 
 抢占式访问权机制的运行过程
 
-<center>![](http://laohanlinux.github.io/images/img/blog/erlang/paxos/20140318102939343.png)
+<center>![](https://i.loli.net/2019/05/03/5ccbe07f619dd.png)
 图一
-![](http://laohanlinux.github.io/images/img/blog/erlang/paxos/20140318103033921.png)
+![](https://i.loli.net/2019/05/03/5ccbe0e8f211c.png)
 图二（#1表示P1获取了访问权）
-![](http://laohanlinux.github.io/images/img/blog/erlang/paxos/20140318103155250.png)
+![](https://i.loli.net/2019/05/03/5ccbe0e989c29.png)
 图3(现在是P2抢占获得了访问权，而P1保存着过期的访问权，此时Acceptor里面的lasted_prepared_epoch 比P1的大)
-![](http://laohanlinux.github.io/images/img/blog/erlang/paxos/20140318103235265.png)
+![](https://i.loli.net/2019/05/03/5ccbe0eaa2bb8.png)
 图4（P2成功设置了V2）
-![](http://laohanlinux.github.io/images/img/blog/erlang/paxos/20140318103312546.png)
+![](https://i.loli.net/2019/05/03/5ccbe0eb4812e.png)
 图5（P1的访问权已经失效了，所以Acceptor(#1,V1)失败）
-![](http://laohanlinux.github.io/images/img/blog/erlang/paxos/20140318103359796.png)
+![](https://i.loli.net/2019/05/03/5ccbe0ebdf301.png)
 图6（P3prepare(#3)成功，但是会返回<ok.#2,V2>，因为var已经被设置了，起到了一致性作用，所以不会在更改var的值）
 </center>
 

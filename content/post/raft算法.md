@@ -47,7 +47,7 @@ raft的角色一共3种，`Leader`,`Follower`以及`Candidate`, 其中`Leader`�
 ## 日志复制
 
 日志由`Leader`产生，然后分发到`Follower`。
-<center>![](http://www.thinkingyu.com/images/raft5.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe09f125dc.png)</center>
 
 日志也是采用大多数应答的原则，如图（日志格式由`任选期-index`唯一标识）。
 

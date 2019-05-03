@@ -404,7 +404,7 @@ stop
 
 ## a simple erlang process pool analysis
 
-<center>![](http://laohanlinux.github.io/images/img/blog/erlang/pool/ppoll.jpg)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0ed434a8.jpg)</center>
 
 这是一个简单的`erlang`进程池分析，是`learn you some erlang for Great Good`里面的一个`example`，详细的内容可到官网查看！
 
@@ -434,7 +434,7 @@ handle_info({start_worker_supervisor, Sup, MFA}, S = #state{}) ->
 ```
 
 如果他们一起直接生产，那么会产生死锁，
-<center>![](http://laohanlinux.github.io/images/img/blog/erlang/pool/ppool_1.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe084bffcf.png)</center>
 
 当然，他这里的生成顺序，可以自己修改一下，也不会出现死锁。
 
@@ -472,7 +472,7 @@ source code ：
 
 https://github.com/devinus/poolboy
 
-![](http://laohanlinux.github.io/images/img/blog/erlang/pool/poolboy.png)
+![](https://i.loli.net/2019/05/03/5ccbe0ec9fe7f.png)
 
 - Checkout
 

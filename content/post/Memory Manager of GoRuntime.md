@@ -10,7 +10,7 @@ draft: true
 
 ### 虚拟内存
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1sul0k0sbj311e0twq5z.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0ac96b2b.jpg)
 
 在现代系统中，保护模式下，进程看到的内存地址都是`虚拟地址`，可以通过页表进行转换，转换到实际的主存RAW或者磁盘中。
 
@@ -53,7 +53,7 @@ Run:
 
 结构:  
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1szxe9enmj30qg0ii0ul.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0ad3c9eb.jpg)
 
 ### 内存分类
 
@@ -61,7 +61,7 @@ Run:
 
 小于等于`32Kb`的对象
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1t0i0ojahj30q40dkmxq.jpg)
+![](https://i.loli.net/2019/05/03/5ccc03703ff4f.jpg)
 
 小对象被映射成`170`种规格的大小的小对象，每个的规格不一定相同，但满足`2^N Bytes`，如：
 
@@ -74,13 +74,13 @@ class2 = `32 * 2^10` = `32Bytes`
 
 ##### 分配
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1g1u3ru12tvj318c0rctdk.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0a971456.jpg)
 
 #### Large
 
 大于`32Kb`的对象
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1t0wqfxtkj311c0lamyd.jpg)
+![](https://i.loli.net/2019/05/03/5ccc0374055b6.jpg)
 
 一共有256中，`[1，255]`类型每一项分别占用`n*4k`，`rest`为特殊项。
 
@@ -203,7 +203,7 @@ $ go tool compile -S main.go
 
 ## 层级
 
-![Go学习笔记](https://ws3.sinaimg.cn/large/006tNc79gy1g1uelpv8qwj318z0u0n1v.jpg)
+![Go学习笔记](https://i.loli.net/2019/05/03/5ccbe0c51b569.jpg)
 
 [^Go学习笔记]: 
 
@@ -231,7 +231,7 @@ go的垃圾回收是`并行`的，是不是全部步骤都是` 并行`？
 
 ### Small Allocator
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1g1u5lyie1dj30rq0rs410.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0aa3373c.jpg)
 
 >  At source-code: sizeclasses.go
 
@@ -274,11 +274,11 @@ var class_to_allocnpages = [_NumSizeClasses]uint8{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 
 #### 分配流程
 
-![image-20190407214226925](https://ws2.sinaimg.cn/large/006tNc79gy1g1ueixmli3j313u0gqabt.jpg)
+![image-20190407214226925](https://i.loli.net/2019/05/03/5ccbe0b867399.jpg)
 
 ### Tiny Allocator
 
-![image-20190407215529472](https://ws2.sinaimg.cn/large/006tNc79gy1g1uewk49qmj314a0k2n0j.jpg)
+![image-20190407215529472](https://i.loli.net/2019/05/03/5ccbe0b93b1d9.jpg)
 
 ### 内存释放
 

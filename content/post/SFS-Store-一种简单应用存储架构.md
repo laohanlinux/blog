@@ -26,7 +26,7 @@ description: "SFS Store 是一个应用层的分布式存储架构抽象， 满�
 
 
 
-<center> ![](http://laohanlinux.github.io/images/img//blog/SFS-Store-%E4%B8%80%E7%A7%8D%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8%E5%AD%98%E5%82%A8%E6%9E%B6%E6%9E%84/sfssfs_1.jpg)</center>
+<center> ![](https://i.loli.net/2019/05/03/5ccbe07a52059.jpg)</center>
 
 
 
@@ -50,7 +50,7 @@ curl -XPOST “http://upload-sfs.com/bucket/<bucketName>/key/<key>.ext”-d $dat
 
 其架构可以简化为下图：
 
-<center>![](http://laohanlinux.github.io/images/img//blog/SFS-Store-%E4%B8%80%E7%A7%8D%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8%E5%AD%98%E5%82%A8%E6%9E%B6%E6%9E%84/sfssfs_2.jpg)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe07b25685.jpg)</center>
 
 上传流程：
 
@@ -110,7 +110,7 @@ curl -XPOST “http://upload-sfs.com/bucket/<bucketName>/key/<key>.ext”-d $dat
 
 `ImageReadlTimeTranscoder`为图片实时作图服务，可采用`imagemagick+lua+openresty`这套成熟的方案。
 
-<center>![](http://laohanlinux.github.io/images/img//blog/SFS-Store-%E4%B8%80%E7%A7%8D%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8%E5%AD%98%E5%82%A8%E6%9E%B6%E6%9E%84/sfssfs_3.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe07b9adf2.png)</center>
 
 ## 3. SFSTranscoder
 
@@ -118,7 +118,7 @@ curl -XPOST “http://upload-sfs.com/bucket/<bucketName>/key/<key>.ext”-d $dat
 
 因为音视频转码是比较耗时的任务，一半采用异步转码即可，由应用服务发送转码任务到`SFSTranscoder`，`SFSTranscoer`采用生产者或消费者模式，具体架构如下：
 
-<center> ![](http://laohanlinux.github.io/images/img//blog/SFS-Store-%E4%B8%80%E7%A7%8D%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8%E5%AD%98%E5%82%A8%E6%9E%B6%E6%9E%84/sfssfs_4.png)</center>
+<center> ![](https://i.loli.net/2019/05/03/5ccbe07c1b879.png)</center>
 
 
 

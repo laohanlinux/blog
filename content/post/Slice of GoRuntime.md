@@ -12,7 +12,7 @@ draft: true
 
 ## Overview
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1g1w7kwcyk1j30ci0723yv.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0c58f1cc.jpg)
 
 - array
 
@@ -28,7 +28,7 @@ draft: true
 
 ## New slice
 
-![image-20190409112312727](https://ws4.sinaimg.cn/large/006tNc79gy1g1w7vakto3j30ci0jkgm5.jpg)
+![image-20190409112312727](https://i.loli.net/2019/05/03/5ccc041ed25a1.jpg)
 
 [mallocgc](<https://laohanlinux.github.io/2019/02/06/memory-manager-of-goruntime/>)
 
@@ -38,7 +38,7 @@ slice比较有意思的是扩容阶段，slice到底是以怎样的方式进行�
 
 主要逻辑在`growslice`函数
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1g1wj3opq8qj30k60qu410.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0c64ae6d.jpg)
 
 *注：* 主要关键的两个逻辑：所需容量小于1024，2^N；大于1024，1/4缓慢递增，直至能容纳所需容量的大小
 
@@ -87,9 +87,9 @@ s:0xc000018200, x:0xc000018200, y:0xc000018200
 
 Why?
 
-![image-20190409120804468](https://ws1.sinaimg.cn/large/006tNc79gy1g1w95y8de0j31nu0p4dkp.jpg)
+![image-20190409120804468](https://i.loli.net/2019/05/03/5ccbe0ab0eed6.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1g1w9a8z2waj308c06omxf.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0b9bbc9e.jpg)
 
 [深入理解 Go Slice](<https://github.com/EDDYCJY/blog/blob/master/golang/pkg/2018-12-11-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Go-Slice.md>)
 

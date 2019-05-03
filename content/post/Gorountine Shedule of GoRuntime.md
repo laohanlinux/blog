@@ -13,7 +13,7 @@ draft: true
 
 
 
-![image-20190408155412222](https://ws1.sinaimg.cn/large/006tNc79ly1g1va2xjsblj31000kggv4.jpg)
+![image-20190408155412222](https://i.loli.net/2019/05/03/5ccbe0add6f36.jpg)
 
 [GopherCon 2018: Kavya Joshi - The Scheduler Saga](<https://www.youtube.com/watch?v=YHRO5WQGh0k>)
 

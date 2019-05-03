@@ -22,7 +22,7 @@ TcpConnection与Acceptor类似，有两个重要的数据成员，Socket与Chann
 
 ### 时序图
 
-<center> ![](http://laohanlinux.github.io/images/img/blog/muduo-net-library-chapter-3/tcpserver_tcpconnection.png) </center>
+<center> ![](https://i.loli.net/2019/05/03/5ccbe089cae9f.png) </center>
 
 ### TcpServer头文件
 
@@ -728,7 +728,7 @@ int main()
 ```
 ## [35-1] multiple reactors
 
-<center> ![](http://laohanlinux.github.io/images/img/blog/muduo-base-library-2/multipilereactors.png) </center>
+<center> ![](https://i.loli.net/2019/05/03/5ccbe0857ddc3.png) </center>
 
 - `muduo`库如何支持多线程
 - `EventLoopThread`（`IO`线程类）

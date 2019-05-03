@@ -20,7 +20,7 @@ description: 简化版的bitcask
 [go bitcask github](https://github.com/laohanlinux/bitcask)
 
 
-<center>![](http://image.haha.mx/2013/04/03/middle/803545_68a109882550ec3556a2b19e277ddb10_1364992759.gif)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe076ebd69.gif)</center>
 
 <center>`talk is cheap, show me the code!` </center>
 
@@ -37,11 +37,11 @@ description: 简化版的bitcask
 
 `bitcask`的数据文件分为**只读文件**和唯一**一个读写文件**
 
-<center>![图-1](http://laohanlinux.github.io/images/img/bitcask-1.png)</center>
+<center>![图-1](https://i.loli.net/2019/05/03/5ccbe07cc3e8a.png)</center>
 
 为了加快索引的重建速度，每个数据文件对应一个`hint`文件，如：
 
-<center>![图-2](http://laohanlinux.github.io/images/img/bitcask-2.png)</center>
+<center>![图-2](https://i.loli.net/2019/05/03/5ccbe07d98438.png)</center>
 
 `data`文件的格式如下：
 
@@ -161,7 +161,7 @@ type BitCask struct {
 
 为简化设计，便于实现，`merge`操作把需要的`old file`文件重新扫描，如果记录是老的或者被删除了得，就过滤掉；需要保留的就按正常的操作重新插入到`active file`文件中。
 
-<center>![](http://laohanlinux.github.io/images/img/bitcask-3.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe07e6ee62.png)</center>
 
 (`ps:本人只实现了一个简单的merge操作，由于比较忙，优化和策略方面还没全面`)
 

@@ -27,7 +27,7 @@ TCP网络编程最本质是的处理三个半事件
 
 ### EchoServer类图   
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo-net-library-chapter-1/EchoServer.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe086dd0ad.png)</center>
 
 *什么都不做的EventLoop*
 
@@ -290,7 +290,7 @@ Aborted
 
 ## [27] EpollPoller 
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo-net-library-chapter-1/Untitled.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe087a90ee.png)</center>
 
 ### EpollPoller的头文件
 
@@ -671,11 +671,11 @@ Timeout!
  typedef std::set<Entry> TimerList;
 ```
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo-net-library-chapter-1/%E5%AE%9A%E6%97%B6%E5%99%A828-2.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0867eeb3.png)</center>
 
 ### 时序图
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo-net-library-chapter-1/%E5%AE%9A%E6%97%B6%E5%99%A828-1.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe08621b9c.png)</center>
 
 ### Timer头文件
 
@@ -1228,7 +1228,7 @@ bool TimerQueue::insert(Timer* timer)
 
 ### EventLoop IO 线程的简单描述
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo-net-library-chapter-1/eventloop.runInloop.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe08849c8d.png)</center>
 
 eventloopThread 分析：
 
@@ -1250,8 +1250,8 @@ eventloop现成循环调用loop()函数：
 
 `eventfd` 是一个比`pipe`更高效的线程间事件通知机制，一方面它比`pipe`少用一个`file descripor`，节省了资源；另一方面,`eventfd`的缓冲区管理也简单得多，全部`buffer`只有定长`8` `bytes`，不像`pipe`那样可能有不定长的真正`buffer`。
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo-net-library-chapter-1/eventloop.runInloop1.png)</center>
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo-net-library-chapter-1/eventloop.runInloop2.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe088e02e9.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0896fc4d.png)</center>
 
 ### EventLoop头文件
 

@@ -124,7 +124,7 @@ type requestVoteResponse struct {
 ```
 ### log.go
 
-![](http://laohanlinux.github.io/images/img/raft-rs.png)
+![](https://i.loli.net/2019/05/03/5ccbe09dcbbca.png)
 
 
 
@@ -825,11 +825,11 @@ func disjoint(all, except peerMap) peerMap {
 
 这是最重要的一个逻辑
 
-![](http://laohanlinux.github.io/images/img/raft-consensus-1.png)
+![](https://i.loli.net/2019/05/03/5ccbe09d2e671.png)
 
 节点配置变更
 
-![](http://laohanlinux.github.io/images/img/raft-state.png)
+![](https://i.loli.net/2019/05/03/5ccbe09e6d6c8.png)
 
 ```go
 // 角色分类  

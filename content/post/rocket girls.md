@@ -6,7 +6,7 @@ categories: ['Life']
 tags: ['火箭少女', '炒团']
 ---
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1g1pyawo1wjj30zk0j142h.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0ae90ec9.jpg)
 
 `2019/03/30`看了人生中的第一场演唱会，总体来说，比较满足，唯一不爽的是坐得太远了，看不清！😂应该买前排的，涨涨经验也好，起码得携带个望眼镜，否则总能看看投影了。
 
@@ -18,21 +18,21 @@ tags: ['火箭少女', '炒团']
 
 本来是想买杨超越的团票，可惜找了好久都没有，可能是超越人气太高了！中间也有`sunnee`的票，可是对方一听说是超越的粉丝，就不卖了！😂😂😂
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1g1q050gxc9j311i0u0b2e.jpg)
+![](https://i.loli.net/2019/05/03/5ccc0374bded0.jpg)
 
 ## 应援
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1g1qhtpb3wqj30sg0lcjyg.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0a166f92.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1g1qhupt3p3j30lc0sgadl.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0a212eba.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1g1qhuwmlwwj30lc0sggql.jpg)
+![](https://i.loli.net/2019/05/03/5ccc0370ed351.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1g1qhvacm0zj30lc0sg7gk.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0af6f067.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1g1qhvfln7ij30lc0sgqbg.jpg)
+![](https://i.loli.net/2019/05/03/5ccc041897e8f.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1g1qhvs57m8j30sg0lc7bd.jpg)
+![](https://i.loli.net/2019/05/03/5ccbe0f958558.jpg)
 
 ## 现场
 

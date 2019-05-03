@@ -1582,7 +1582,7 @@ class BoundedBlockingQueue : boost::noncopyable
 
 ## [16] ThreadPool
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/ThreadPool.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0ef76f35.png)</center>
 
 ### threadPool类图
 
@@ -1855,7 +1855,7 @@ int main()
 
 ### Singleton class uml
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/singleton.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe091b25a2.png)</center>
 
 
 ### Singleton源代码
@@ -2147,7 +2147,7 @@ tid= 2915,destructing 0x9435038 main two
 
 ### ThreadLocalSingle class UML
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/ThreadLocalSingletonDeleter.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0ef19ddb.png)</center>
 
 ### 源程序
 
@@ -2344,7 +2344,7 @@ tid=2183, destructing 0x89b4028 main one
 
 ### 日志流程
 
-<center> ![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/logger%281%29.png) </center>
+<center> ![](https://i.loli.net/2019/05/03/5ccc03622099c.png) </center>
 
 - TRACE
 指出比DEBUG粒度更细的一些信息事件（开发过程中使用）
@@ -2559,23 +2559,23 @@ int main()
 
 ## [21] Logger-2 
 
-<center> ![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/logger2.png)</center>
+<center> ![](https://i.loli.net/2019/05/03/5ccc0364404df.png)</center>
 
 ### LogStream类图
 
-<center> ![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/logstream.png)</center>
+<center> ![](https://i.loli.net/2019/05/03/5ccbe08f9a3ed.png)</center>
 
 ### FixedBuffer类图
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/fixedbuffer.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccc0361772d0.png)</center>
 
 ### Logger类图
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/logger3.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccc0364d12de.png)</center>
 
 ### Impl类图
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/loggerimpl.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe08f18e94.png)</center>
 
 ### LogStream的测试程序1  
 
@@ -3102,11 +3102,11 @@ std::ostream& operator<<(std::ostream& o, const muduo::StringPiece& piece);
 ### Logger 类图
 
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/loggerclass.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccc0365540c7.png)</center>
 
 ### File类图
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/fileclass.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccc036101a3f.png)</center>
 
 file类是LogFile的一个内置类
 

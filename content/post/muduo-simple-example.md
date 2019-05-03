@@ -806,7 +806,7 @@ int main(int argc, char* argv[])
 
 EventLoopThreadPoll + threadpool + IOnumThreads_ + ThreadPoolnumThreads_
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo-simple-example/multiplereactorthreadpool.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0ede31a9.png)</center>
 
 ``` c++
 include "sudoku.h"
@@ -1271,7 +1271,7 @@ int main(int argc, char* argv[])
 
 消息分为包头与包体，每条消息有一个4字节的头部，以网络序存放字符串的长度。包体是一个字符串，字符串也不一定以’\0’结尾。比方说有两条消息"hello"和"chenshuo"，那么打包后的字节流是： `0x00,0x00,0x00,0x05, 'h','e','l','l','o',0x00,0x00,0x00,0x08,'c','h', 'e','n','s','h','u','o'` 共21字节。 
 
-<center> ![](hhttp://laohanlinux.github.io/images/img/blog/muduo-simple-example/chat1.png)</center>
+<center> ![](https://i.loli.net/2019/05/03/5ccbe075e6079.png)</center>
 
 `shared_ptr` 指针
 

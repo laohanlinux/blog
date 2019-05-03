@@ -19,13 +19,13 @@ description: 毛剑大神写的分布式聊天系统,即可用于推送也可用
 
 <center>
 
-![websocket](http://laohanlinux.github.io/images/img/goim/comet-websocket.png)
+![websocket](https://i.loli.net/2019/05/03/5ccbe09b349a8.png)
 
 </center>
 
 <center> 图 1-1： comet websocket protoc</center>
 
-<center>![tcp](http://laohanlinux.github.io/images/img/goim/comet-tcp.png)</center>
+<center>![tcp](https://i.loli.net/2019/05/03/5ccbe09a6d45b.png)</center>
 
 <center> 图 1-2： comet tcp protoc</center>
 
@@ -58,7 +58,7 @@ type Bucket struct {
 }
 ```
 
-<center>![](http://laohanlinux.github.io/images/img/goim/bucket-goroutine.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0f5224c7.png)</center>
 
 <center>图 1-3</center>
 
@@ -105,7 +105,7 @@ type Room struct {
 
 协议：
 
-<center>![](http://laohanlinux.github.io/images/img/goim/tcp-proto.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe09c61372.png)</center>
 
 <center>图 1-4</center>
 
@@ -158,7 +158,7 @@ type PushRPC struct {
 
 #### ring
 
-<center>![](http://laohanlinux.github.io/images/img/goim/comet-ring.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0f89c8f7.png)</center>
 
 <center>图 1-5</center>
 
@@ -188,7 +188,7 @@ type PushRPC struct {
 >
 > ​	如果wp移动过快，会影响rp游标指向的数据，如图：
 
-<center>![](http://laohanlinux.github.io/images/img/goim/comet-ring-1.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0f833110.png)</center>
 
 <center>图 1-6</center>
 
@@ -204,19 +204,19 @@ type PushRPC struct {
 
 ### 单/多播
 
-<center>![](http://laohanlinux.github.io/images/img/goim/Job=>多播.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe094946f7.png)</center>
 
 <center>图 2-1</center>
 
 ### 广播
 
-<center>![](http://laohanlinux.github.io/images/img/goim/Job=> 广播.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0932babc.png)</center>
 
 <center>图 2-2</center>
 
 ### 按房间推送
 
-<center>![](http://laohanlinux.github.io/images/img/goim/Job=>按房间推送.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe095671bc.png)</center>
 
 <center>图 2-3</center>
 
@@ -224,7 +224,7 @@ type PushRPC struct {
 
 #### comet
 
-<center>![](http://laohanlinux.github.io/images/img/goim/Job=>comet.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe093d7d14.png)</center>
 
 <center>图 3-4</center>
 
@@ -311,7 +311,7 @@ type RoomOptions struct {
 
 ## Logic
 
-<center>![](http://laohanlinux.github.io/images/img/goim/logic-router.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe09bcfd92.png)</center>
 
 <center>图 3-5</center>
 
@@ -560,7 +560,7 @@ type Reader struct {
 
 `Reader`是一个具有缓存的可读`IO`。
 
-<center>![](http://laohanlinux.github.io/images/img/goim/bufio-reader.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0f6222ee.png)</center>
 
 <center>图 5-1</center>
 
@@ -596,7 +596,7 @@ type Reader struct {
 
 - func (b *Reader) fill()
 
-<center>![](http://laohanlinux.github.io/images/img/goim/bufio-reader-fill.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0f5ae79a.png)</center>
 
 <center>图 5-2</center>
 
@@ -631,7 +631,7 @@ type Writer struct {
 
 游标被重置（不一定会被重置为0，可能为其他值，因为本地缓冲的数据大于内核可写缓冲区，这时还会造成数据的搬迁）。
 
-<center>![](http://laohanlinux.github.io/images/img/goim/bufio-writer.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0f680404.png)</center>
 
 - func (b *Writer) Available() int
 
@@ -677,7 +677,7 @@ type Pool struct {
 
 `pool`内存组织如下，`pool`是一个链式存储的`栈`，数据从栈顶出，同时数据也从栈顶回收。
 
-<center>![](http://laohanlinux.github.io/images/img/goim/bytes.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0f793e4f.png)</center>
 
 
 
@@ -697,7 +697,7 @@ type Pool struct {
 >
 >  ​	pool 是一个不限大小的内存池，如果栈没有数据了，那么pool会调用glow()重新生成数据，所以最后可能造成的内存架构如下图所示
 
-<center>![](http://laohanlinux.github.io/images/img/goim/bytes-2.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0f713888.png)</center>
 
 如果租借的速度大于归还的速度，会造成内存的溢出。
 

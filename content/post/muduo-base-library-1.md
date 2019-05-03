@@ -313,7 +313,7 @@ int main (){
 
 我们看一下下面这张图
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/muduo_base_library_1.png)</center> 
+<center>![](https://i.loli.net/2019/05/03/5ccbe09046fdd.png)</center> 
 
 ``` c++
 
@@ -872,11 +872,11 @@ while (n > 0) {
 
 从`socket`读数据:
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/muduo_base_library_2.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe090bc2b0.png)</center>
 
 往`socket`写数据
 
-<center>![](http://laohanlinux.github.io/images/img/blog/muduo_base_library/muduo_base_library_3.png)</center>
+<center>![](https://i.loli.net/2019/05/03/5ccbe0913c7d7.png)</center>
 
 所以, 在`epoll`的`ET`模式下, 正确的读写方式为:
 - 读: 只要可读, 就一直读, 直到返回`0`, 或者`errno = EAGAIN`
