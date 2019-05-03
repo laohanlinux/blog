@@ -3,7 +3,6 @@ title: muduo_base_library_2
 date: 2013-06-10 12:43:39
 tags:
 - muduo
-- muduo base library
 categories:
 - muduo 
 - network program
